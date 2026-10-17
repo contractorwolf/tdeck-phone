@@ -17,6 +17,7 @@ Photos are in `../images/` (front/back of the T-Deck, top/bottom of the HAT).
 - [parts/waveshare-sim7600x-hat.md](parts/waveshare-sim7600x-hat.md): what the HAT is and what it does and does not break out.
 - [sim7600-pins-to-find.md](sim7600-pins-to-find.md): the module pads to dead-bug, with pad numbers and page citations.
 - [at-interface-options.md](at-interface-options.md): every way to send/receive AT commands, using the HAT's own interfaces and the module edge pads, plus a bring-up order.
+- [bring-up-checklist.md](bring-up-checklist.md): step-by-step order of work with pass conditions.
 - [level-shifting.md](level-shifting.md): the 3.3V to/from 1.8V circuit, PWRKEY/RESET drivers, power and grounding.
 - [reference/SOURCES.md](reference/SOURCES.md): downloaded datasheets and where they came from.
 
