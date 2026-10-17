@@ -42,6 +42,8 @@ Check VDD_1V8 (pad 15) can supply this: it is rated 50mA max, and the shifter dr
 
 ## 3. PWRKEY and RESET: open-drain driver only
 
+**Note for the Waveshare V2 (B):** PWRKEY (pad 3) is tied to ground through R26 (0Ω), so the module powers on by itself and this driver is not needed unless you remove R26. Never drive pad 3 high either way.
+
 PWRKEY (pad 3) and RESET (pad 4) are pulled up to 1.8V inside the module. Never drive them high from 3.3V. Pull them low with a transistor:
 
 ```

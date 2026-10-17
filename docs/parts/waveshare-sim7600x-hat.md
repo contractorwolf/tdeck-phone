@@ -12,7 +12,7 @@ Top side:
 
 Bottom side:
 - SIM card slot, 3.5mm audio jack with a NAU8810 audio codec (Waveshare spec for the B variant), 330uF bulk capacitor.
-- Pads labelled USB3 (5V, DM, DP, GND), USB1 / USB2 connection points, "D-/D+" pads near the jack.
+- Pads labelled USB3 (5V, DM, DP, GND), USB1 / USB2 connector footprints, "D-/D+" pogo pads near the jack. Per the V2 schematic these are all USB hub ports, not module pins; see [../at-interface-options.md](../at-interface-options.md) A2.
 - 5V and GND pads (right of the SIM slot).
 - NET and PWR LEDs.
 - A 28-pin SSOP chip, probably the FE1.1S USB hub (Waveshare lists one).
@@ -28,14 +28,27 @@ The HAT exposes the module through USB (hub chip) and audio (jack). The module's
 - The module draws large current bursts when transmitting (see the current-consumption tables in the hardware design), so power the HAT from a real 5V supply or USB charger, not from the T-Deck.
 - Share ground with the T-Deck.
 
-## Things to verify before soldering
+## What the (B) V2 schematic says
 
-- Whether the module UART (pads 68, 71) is also connected on this board to the USB hub / a USB-serial chip or to a header. The older V1 HAT schematic (`reference/Waveshare_SIM7600G-H_4G_HAT_schematic_V1.pdf`) shows a CP2102 on UART TX/RX plus a NAU8810 on PCM; the V2 (B) board uses a hub instead, so check continuity from the pads.
-- Whether PWRKEY (pad 3) is tied to a pulse circuit or to ground on this board, i.e. whether the module powers on by itself when 5V is applied.
-- Whether the audio codec on PCM can be left in place while the PCM pads are not touched.
+Source: `reference/Waveshare_SIM7600X_4G_HAT_B_V2_schematic.pdf` (from the Waveshare wiki).
+
+- **USB:** FE1.1S hub. Upstream is micro-USB or the D+/D- pogo pads. Downstream: port 1 is the module's USB, ports 2/3 are the USB1/USB2 connector footprints, port 4 is the USB3 solder pads.
+- **UART:** the module's UART pins (68, 71, 66, 67, 69, 70, 72) are not connected to anything on the board.
+- **PWRKEY (pad 3):** tied to GND through R26 (0Ω), so the module powers on as soon as VBAT is present. To control power from the T-Deck, remove R26.
+- **RESET (4), STATUS (49), VDD_EXT (44):** net-label stubs only, free.
+- **Audio:** NAU8810 codec on the module's PCM pads (73-76), configured over the module's I2C (pads 55/56), outputs to the 3.5mm jack. Leave these pads alone if you keep the jack.
+- **VDD_1V8 (pad 15)** feeds the board's 1.8V rail (codec and I2C pull-ups), so budget the 50mA limit when also using it for the level shifter.
+- USB_VBUS (pad 11) is tied to the 5V rail.
+
+## Still to verify on the physical board
+
+- That R26 is populated (look for a 0Ω part near the PWRKEY pad; it is not visible in the photos).
+- Continuity of USB1/USB2 edge pads (see at-interface-options.md A2).
+- Pad 1 orientation and each pad number by continuity.
 
 ## Reference
 
 - Waveshare wiki: https://www.waveshare.com/wiki/SIM7600G-H_4G_HAT
 - Product page: https://www.waveshare.com/product/iot-communication/sim7600g-h-4g-hat-b.htm
-- V1 schematic: `reference/Waveshare_SIM7600G-H_4G_HAT_schematic_V1.pdf` (a V2 schematic PDF was not downloadable from the wiki's file page, see SOURCES.md)
+- V2 (B) schematic: `reference/Waveshare_SIM7600X_4G_HAT_B_V2_schematic.pdf` (also V1 (B): `..._B_V1_schematic.pdf`)
+- Older non-(B) HAT schematic (has CP2102 + TXB0108, not this board): `reference/Waveshare_SIM7600G-H_4G_HAT_schematic_V1.pdf`

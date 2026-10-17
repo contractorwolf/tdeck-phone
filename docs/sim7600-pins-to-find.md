@@ -11,8 +11,8 @@ Pad numbers are the module's LCC pad numbers, not HAT silkscreen labels. Verify 
 | TXD | 71 | out | 1.8V | Module to T-Deck RX (GPIO44). Needs a shifter up to 3.3V | to find |
 | RXD | 68 | in | 1.8V | T-Deck TX (GPIO43) to module. Divider or shifter down to 1.8V | to find |
 | GND | 1, 2, 5, 10, 14, ... | | | Common ground with T-Deck, use the pad nearest the UART pads | to find |
-| PWRKEY | 3 | in, active low, internal pull-up to 1.8V | 1.8V | Pull low 100-500ms to power on; ~2.5s to power off. Drive with an open-drain transistor only | to find |
-| STATUS | 49 | out | 1.8V | High = powered on and firmware ready (15-16s after PWRKEY). Lets firmware know when to send AT | to find |
+| PWRKEY | 3 | in, active low, internal pull-up to 1.8V | 1.8V | **Tied to GND via R26 (0Ω) on the V2 (B), so the module auto-powers on.** Skip this wire for now; to control power from the T-Deck remove R26, then pull low 100-500ms (on) / ~2.5s (off) with an open-drain transistor only | optional |
+| STATUS | 49 | out | 1.8V | High = powered on and firmware ready (15-16s after power-up). Lets firmware know when to send AT | to find |
 
 ## Strongly wanted
 
@@ -44,4 +44,4 @@ Pad numbers are the module's LCC pad numbers, not HAT silkscreen labels. Verify 
 
 ## Minimum wires for a first test
 
-GND, TXD (71), RXD (68), PWRKEY (3), VDD_1V8 (15). Add STATUS (49) and RI (69) next. Six to eight dead-bug wires in total, plus RESET (4) if you want recovery.
+GND, TXD (71), RXD (68), VDD_1V8 (15) (PWRKEY not needed while R26 is fitted). Add STATUS (49) and RI (69) next. Six to eight dead-bug wires in total, plus RESET (4) if you want recovery.
