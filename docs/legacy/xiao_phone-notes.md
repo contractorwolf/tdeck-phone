@@ -13,7 +13,7 @@ Source: [xiao_phone.ino](xiao_phone.ino), a 480-line Arduino sketch from the ear
 
 | Item | Value in the sketch | Why it matters |
 |---|---|---|
-| Modem UART | `Serial1.begin(9600)`, 250 ms timeout | The old HAT was talking at **9600 baud**, not the module default of 115200 in our docs. Either the module was set with `AT+IPR=9600` or something in the path forces it. Read `AT+IPR?` over the CP2102 USB before wiring the T-Deck, and use the answer instead of assuming 115200 |
+| Modem UART | `Serial1.begin(9600)`, 250 ms timeout | The old HAT was talking at **9600 baud**, not the module default of 115200 in our docs. Either the module was set with `AT+IPREX=9600` or something in the path forces it (bench result: `AT+IPREX?` returns 9600, so it is a stored setting). Read `AT+IPR?` over the CP2102 USB before wiring the T-Deck, and use the answer instead of assuming 115200 |
 | Debug UART | `Serial.begin(9600)` | Only the IDE console |
 | Call button | pin 3, `INPUT`, active **high** | No internal pull-up used, so it had an external pull-down |
 | Text button | pin 4, `INPUT`, active high | A comment says to avoid pins that could be SDA, so the buttons were on pins shared with I2C and "requires rewire" |
@@ -82,7 +82,7 @@ AT+CGNSSINFO
 
 ## What to carry into the T-Deck project
 
-1. **Check the baud first.** The old setup ran at 9600. Read `AT+IPR?` over the CP2102 and note the answer in [../bring-up-checklist.md](../bring-up-checklist.md) Phase 1. If it is 9600, either keep it for the T-Deck or set 115200 with `AT+IPR=115200` and `AT&W`.
+1. **Check the baud first.** The old setup ran at 9600. Read `AT+IPR?` over the CP2102 and note the answer in [../bring-up-checklist.md](../bring-up-checklist.md) Phase 1. If it is 9600, either keep it for the T-Deck or set it permanently with `AT+IPREX=115200` (`AT+IPR` is temporary and reverts at reboot).
 2. **Dial with `ATD+<E.164>;`**, as in the sketch, and add hang-up, answer, `AT+CLCC`, `AT+CLIP=1` and `RING` handling.
 3. **SMS:** set `AT+CMGF=1` explicitly, wait for the `> ` prompt, send Ctrl-Z, wait up to 10 s for `+CMGS:` then `OK`.
 4. **GNSS** works on this module: `AT+CGPS=1` then `AT+CGNSSINFO`. Optional feature.

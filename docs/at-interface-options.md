@@ -62,7 +62,7 @@ The (B) V2 schematic shows the module's UART pins (TXD 71, RXD 68, RTS 66, CTS 6
 
 - Module is a DCE with a 7-wire UART: TXD pad 71, RXD pad 68, RTS 66, CTS 67, RI 69, DCD 70, DTR 72 (p.~8, 20).
 - Logic is 1.8V. Level shifting is covered in [level-shifting.md](level-shifting.md).
-- Default 115200 baud, 8N1. Supported rates 300 up to 4Mbps (p.34). 115200 is plenty for SMS and call control; raise it with `AT+IPR=<rate>` (use 460800 or 921600 only if running data or CMUX, and shift accordingly).
+- Default 115200 baud, 8N1. Supported rates 300 up to 4Mbps (p.34). 115200 is plenty for SMS and call control; raise it with `AT+IPREX=<rate>` (permanent; `AT+IPR` is **temporary** and reverts at reboot, per the AT manual) and use 460800 or 921600 only if running data or CMUX. On the A-H bench unit the permanent rate is 9600.
 - Hardware flow control is off by default and can be enabled with `AT+IFC`. Not needed for SMS and voice at 115200.
 - The module takes about 13-14s after power-up before the UART is ready, and 15-16s until STATUS goes high (p.29).
 - Pads can be soldered at the corners of the LCC edge, with wire-wrap wire and a fine tip. Confirm pad numbers by continuity to a known net before soldering.
