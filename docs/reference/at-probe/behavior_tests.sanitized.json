@@ -1,0 +1,992 @@
+[
+ {
+  "cmd": "ATI",
+  "response": "ATI\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+GMI",
+  "response": "AT+GMI\nSIMCOM INCORPORATED\n\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+GMM",
+  "response": "AT+GMM\nSIMCOM_SIM7600A-H\n\nOK",
+  "first_byte_s": 0.206,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+GMR",
+  "response": "AT+GMR\n+GMR: LE11B03SIM7600A-H\n\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+GSN",
+  "response": "AT+GSN\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.207,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CGMI",
+  "response": "AT+CGMI\nSIMCOM INCORPORATED\n\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CGMM",
+  "response": "AT+CGMM\nSIMCOM_SIM7600A-H\n\nOK",
+  "first_byte_s": 0.202,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CGMR",
+  "response": "AT+CGMR\n+CGMR: LE11B03SIM7600A-H\n\nOK",
+  "first_byte_s": 0.206,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CSUB",
+  "response": "AT+CSUB\n+CSUB: B03V07\n+CSUB: MDM9x07_A-H_22_V1.10_190221\n\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+SIMCOMATI",
+  "response": "AT+SIMCOMATI\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.2,
+  "total_s": 0.61
+ },
+ {
+  "cmd": "AT+CCPUTEMP",
+  "response": "AT+CCPUTEMP\nERROR",
+  "first_byte_s": 0.207,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CPATEMP",
+  "response": "AT+CPATEMP\n+CPATEMP: 25\n\nOK",
+  "first_byte_s": 0.204,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CADC",
+  "response": "AT+CADC\nERROR",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CBC",
+  "response": "AT+CBC\n+CBC: 3.883V\n\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CCLK?",
+  "response": "AT+CCLK?\n+CCLK: \"26/10/18,14:24:40-24\"\n\nOK",
+  "first_byte_s": 0.206,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CTZU?",
+  "response": "AT+CTZU?\n+CTZU: 1\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CNSMOD?",
+  "response": "AT+CNSMOD?\n+CNSMOD: 0,8\n\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CFUN?",
+  "response": "AT+CFUN?\n+CFUN: 1\n\nOK",
+  "first_byte_s": 0.206,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CNMP?",
+  "response": "AT+CNMP?\n+CNMP: 2\n\nOK",
+  "first_byte_s": 0.202,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CNBP?",
+  "response": "AT+CNBP?\n+CNBP: 0x<redacted>,0x<redacted>A,0x<redacted>F\n\nOK",
+  "first_byte_s": 0.202,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CGMR",
+  "response": "AT+CGMR\n+CGMR: LE11B03SIM7600A-H\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CSCLK?",
+  "response": "AT+CSCLK?\n+CSCLK: 0\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CMEE?",
+  "response": "AT+CMEE?\n+CMEE: 2\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+COPS?",
+  "response": "AT+COPS?\n+COPS: 0,0,\"Ting\",7\n\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CGREG?",
+  "response": "AT+CGREG?\n+CGREG: 0,1\n\nOK",
+  "first_byte_s": 0.201,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CREG?",
+  "response": "AT+CREG?\n+CREG: 0,1\n\nOK",
+  "first_byte_s": 0.206,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CESQ",
+  "response": "AT+CESQ\n+CESQ: 99,99,255,255,11,33\n\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CSQ",
+  "response": "AT+CSQ\n+CSQ: 19,99\n\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CCINFO",
+  "response": "AT+CCINFO\n+CCINFO: NOT IN GSM or CDMA\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CPMS?",
+  "response": "AT+CPMS?\n+CPMS: \"SM\",1,30,\"SM\",1,30,\"SM\",1,30\n\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CSDH?",
+  "response": "AT+CSDH?\n+CSDH: 0\n\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CPBS?",
+  "response": "AT+CPBS?\n+CPBS: \"ON\",1,2\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CPBS=?",
+  "response": "AT+CPBS=?\n+CPBS: (\"SM\",\"DC\",\"FD\",\"LD\",\"MC\",\"ME\",\"RC\",\"EN\",\"ON\")\n\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CPBR=?",
+  "response": "AT+CPBR=?\n+CPBR: (1-2),40,14\n\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CLCC",
+  "response": "AT+CLCC\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CHUP",
+  "response": "AT+CHUP\nOK",
+  "first_byte_s": 0.204,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CGPS?",
+  "response": "AT+CGPS?\n+CGPS: 1,1\n\nOK",
+  "first_byte_s": 0.205,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CGPSINFO",
+  "response": "AT+CGPSINFO\n+CGPSINFO: ,,,,,,,,\n\nOK",
+  "first_byte_s": 0.204,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CGNSSINFO",
+  "response": "AT+CGNSSINFO\n+CGNSSINFO: ,,,,,,,,,,,,,,,\n\nOK",
+  "first_byte_s": 0.205,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CGPSINFOCFG?",
+  "response": "AT+CGPSINFOCFG?\n+CGPSINFOCFG: 0,0\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CGPSNMEA?",
+  "response": "AT+CGPSNMEA?\n+CGPSNMEA: 63\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CLBS=?",
+  "response": "AT+CLBS=?\n+CLBS: (1,2,3,4,9),(1-24,100-179),(-180.000000-180.000000),(-90.000000-90.000000),(0,1)\n\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CFSINIT?",
+  "response": "AT+CFSINIT?\nERROR",
+  "first_byte_s": 0.207,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+FSCD?",
+  "response": "AT+FSCD?\n+FSCD: C:/\n\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+FSLS?",
+  "response": "AT+FSLS?\n+FSLS: SUBDIRECTORIES:0,FILES:0\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CNETSTART?",
+  "response": "AT+CNETSTART?\n+CNETSTART: 0\n\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CSOCKSETPN?",
+  "response": "AT+CSOCKSETPN?\n+CSOCKSETPN: 1\n\nOK",
+  "first_byte_s": 0.206,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CIPMODE?",
+  "response": "AT+CIPMODE?\n+CIPMODE: 0\n\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CGATT?",
+  "response": "AT+CGATT?\n+CGATT: 1\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CGACT?",
+  "response": "AT+CGACT?\n+CGACT: 1,1\n+CGACT: 2,1\n+CGACT: 3,0\n\nOK",
+  "first_byte_s": 0.206,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CGPADDR",
+  "response": "AT+CGPADDR\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.206,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CGDCONT?",
+  "response": "AT+CGDCONT?\n+CGDCONT: 1,\"IP\",\"hologram\",\"<ip>\",0,0,0,0\n+CGDCONT: 2,\"IPV4V6\",\"ims\",\"<ip>.<ip>.<ip>.<ip>\",0,0,0,0\n+CGDCONT: 3,\"IPV4V6\",\"sos\",\"<ip>.<ip>.<ip>.<ip>\",0,0,0,1\n\nOK",
+  "first_byte_s": 0.2,
+  "total_s": 0.61
+ },
+ {
+  "cmd": "AT+CGEQOS?",
+  "response": "AT+CGEQOS?\n+CGEQOS: \n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CGCONTRDP=1",
+  "response": "AT+CGCONTRDP=1\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.206,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CGCONTRDP=2",
+  "response": "AT+CGCONTRDP=2\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.2,
+  "total_s": 0.61
+ },
+ {
+  "cmd": "AT+CNTP?",
+  "response": "AT+CNTP?\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CCLK?",
+  "response": "AT+CCLK?\n+CCLK: \"26/10/18,14:24:57-24\"\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CRSL?",
+  "response": "AT+CRSL?\nERROR",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CMICGAIN?",
+  "response": "AT+CMICGAIN?\n+CMICGAIN: 3\n\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+COUTGAIN?",
+  "response": "AT+COUTGAIN?\n+COUTGAIN: 8\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CMICGAIN=?",
+  "response": "AT+CMICGAIN=?\n+CMICGAIN: (0-8)\n\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+COUTGAIN=?",
+  "response": "AT+COUTGAIN=?\n+COUTGAIN: (0-8)\n\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CSIDET?",
+  "response": "AT+CSIDET?\nERROR",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CSDVC?",
+  "response": "AT+CSDVC?\n+CSDVC: 1\n\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CPCMREG?",
+  "response": "AT+CPCMREG?\n+CPCMREG: 0\n\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CODECCTL?",
+  "response": "AT+CODECCTL?\n+CCODECCTL: 0\n\nOK",
+  "first_byte_s": 0.202,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CECM?",
+  "response": "AT+CECM?\n+CECM: 0\n\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CECH?",
+  "response": "AT+CECH?\nERROR",
+  "first_byte_s": 0.206,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CACDBFN=?",
+  "response": "AT+CACDBFN=?\n+CACDBFN: (Handset_cal.acdb,Handset_dingxin.acdb,Handset_tianmai.acdb)\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CREC=?",
+  "response": "AT+CREC=?\nOK",
+  "first_byte_s": 0.201,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CCMXPLAYWAV=?",
+  "response": "AT+CCMXPLAYWAV=?\n+CCMXPLAYWAV: (1-2),(0-255)\n\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CTTS=?",
+  "response": "AT+CTTS=?\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CATR?",
+  "response": "AT+CATR?\n+CATR: 0\n\nOK",
+  "first_byte_s": 0.204,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CSCS?",
+  "response": "AT+CSCS?\n+CSCS: \"IRA\"\n\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CMGF?",
+  "response": "AT+CMGF?\n+CMGF: 1\n\nOK",
+  "first_byte_s": 0.201,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CNMI?",
+  "response": "AT+CNMI?\n+CNMI: 2,1,0,0,0\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CSMP?",
+  "response": "AT+CSMP?\n+CSMP: 17,,0,0\n\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CSCA?",
+  "response": "AT+CSCA?\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.207,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CSMS?",
+  "response": "AT+CSMS?\n+CSMS: 0,1,1,1\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CRC?",
+  "response": "AT+CRC?\n+CRC: 0\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CVHU?",
+  "response": "AT+CVHU?\n+CVHU: 1\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CLIP=?",
+  "response": "AT+CLIP=?\n+CLIP: (0-1)\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CLIR?",
+  "response": "AT+CLIR?\nERROR",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CCWA?",
+  "response": "AT+CCWA?\n+CCWA: 0\n\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CCFC=?",
+  "response": "AT+CCFC=?\n+CCFC: (0,1,2,3,4,5)\n\nOK",
+  "first_byte_s": 0.201,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CLCK=?",
+  "response": "AT+CLCK=?\n+CLCK: (\"AB\",\"AC\",\"AG\",\"AI\",\"AO\",\"IR\",\"OI\",\"OX\",\"SC\",\"FD\",\"PN\",\"PU\",\"PP\",\"PC\",\"PF\")\n\nOK",
+  "first_byte_s": 0.206,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CHLD=?",
+  "response": "AT+CHLD=?\n+CHLD: (0,1,1x,2,2x,3,4)\n\nOK",
+  "first_byte_s": 0.202,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CUSD?",
+  "response": "AT+CUSD?\n+CUSD: 0\n\nOK",
+  "first_byte_s": 0.203,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CSSN?",
+  "response": "AT+CSSN?\n+CSSN: 0,0\n\nOK",
+  "first_byte_s": 0.203,
+  "total_s": 0.4
+ },
+ {
+  "cmd": "AT+CPWD=?",
+  "response": "AT+CPWD=?\n+CPWD: (\"AB\",4),(\"AC\",4),(\"AG\",4),(\"AI\",4),(\"AO\",4),(\"IR\",4),(\"OI\",4),(\"OX\",4),(\"SC\",8),(\"P2\",8)\n\nOK",
+  "first_byte_s": 0.202,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+VMUTE?",
+  "response": "AT+VMUTE?\n+VMUTE: 0\n\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CMUT?",
+  "response": "AT+CMUT?\n+CMUT: 0\n\nOK",
+  "first_byte_s": 0.206,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CLVL?",
+  "response": "AT+CLVL?\n+CLVL: 4\n\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+IFC?",
+  "response": "AT+IFC?\n+IFC: 0,0\n\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+ICF?",
+  "response": "AT+ICF?\n+ICF: 3,3\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+IPREX?",
+  "response": "AT+IPREX?\n+IPREX: 9600\n\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CMUX?",
+  "response": "AT+CMUX?\n+CMUX: 0,0,5,118,0,0,600\n\nOK",
+  "first_byte_s": 0.205,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CSCLK=?",
+  "response": "AT+CSCLK=?\n+CSCLK: (0-1)\n\nOK",
+  "first_byte_s": 0.205,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CTZR?",
+  "response": "AT+CTZR?\n+CTZR: 0\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CLTS?",
+  "response": "AT+CLTS?\nERROR",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CNSMOD=?",
+  "response": "AT+CNSMOD=?\n+CNSMOD: (0-1)\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CPSMS?",
+  "response": "AT+CPSMS?\n+CPSMS:0,,,\"00011000\",\"00001010\"\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CEDRXS?",
+  "response": "AT+CEDRXS?\nERROR",
+  "first_byte_s": 0.202,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CEDRXRDP",
+  "response": "AT+CEDRXRDP\nERROR",
+  "first_byte_s": 0.205,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CRSM=?",
+  "response": "AT+CRSM=?\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CIMI",
+  "response": "AT+CIMI\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.206,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CICCID",
+  "response": "AT+CICCID\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.204,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CCID",
+  "response": "AT+CCID\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.206,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CNUM",
+  "response": "AT+CNUM\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.207,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "at",
+  "response": "at\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "At",
+  "response": "At\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT   ",
+  "response": "AT   \nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+FOOBAR",
+  "response": "AT+FOOBAR\nERROR",
+  "first_byte_s": 0.209,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+FOOBAR=?",
+  "response": "AT+FOOBAR=?\nERROR",
+  "first_byte_s": 0.208,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+FOOBAR?",
+  "response": "AT+FOOBAR?\nERROR",
+  "first_byte_s": 0.207,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT\r",
+  "response": "AT\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "ATE0",
+  "response": "ATE0\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT",
+  "response": "OK",
+  "first_byte_s": 0.208,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "ATE1",
+  "response": "OK",
+  "first_byte_s": 0.205,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CMEE=0",
+  "response": "AT+CMEE=0\nOK",
+  "first_byte_s": 0.206,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CMGR=999",
+  "response": "AT+CMGR=999\nERROR",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CMGD=999",
+  "response": "AT+CMGD=999\nERROR",
+  "first_byte_s": 0.208,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CPIN=1111",
+  "response": "AT+CPIN=1111\nERROR",
+  "first_byte_s": 0.207,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CMEE=1",
+  "response": "AT+CMEE=1\nOK",
+  "first_byte_s": 0.201,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CMGR=999",
+  "response": "AT+CMGR=999\n+CMS ERROR: 321",
+  "first_byte_s": 0.201,
+  "total_s": 0.4
+ },
+ {
+  "cmd": "AT+CMGD=999",
+  "response": "AT+CMGD=999\n+CMS ERROR: 321",
+  "first_byte_s": 0.201,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CMGR=-1",
+  "response": "AT+CMGR=-1\nERROR",
+  "first_byte_s": 0.205,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CMGR=abc",
+  "response": "AT+CMGR=abc\nERROR",
+  "first_byte_s": 0.201,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CNMI=9",
+  "response": "AT+CNMI=9\n+CMS ERROR: 303",
+  "first_byte_s": 0.208,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CMEE=2",
+  "response": "AT+CMEE=2\nOK",
+  "first_byte_s": 0.202,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CMGR=999",
+  "response": "AT+CMGR=999\n+CMS ERROR: Invalid memory index",
+  "first_byte_s": 0.208,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CMGD=999",
+  "response": "AT+CMGD=999\n+CMS ERROR: Invalid memory index",
+  "first_byte_s": 0.21,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CMGR=-1",
+  "response": "AT+CMGR=-1\nERROR",
+  "first_byte_s": 0.204,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CMGR=abc",
+  "response": "AT+CMGR=abc\nERROR",
+  "first_byte_s": 0.209,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CNMI=9",
+  "response": "AT+CNMI=9\n+CMS ERROR: Operation not supported",
+  "first_byte_s": 0.208,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CSCS=\"FOO\"",
+  "response": "AT+CSCS=\"FOO\"\nERROR",
+  "first_byte_s": 0.203,
+  "total_s": 0.4
+ },
+ {
+  "cmd": "AT+CSQ=5",
+  "response": "AT+CSQ=5\n+CME ERROR: operation not allowed",
+  "first_byte_s": 0.203,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CPMS=\"ME\",\"ME\",\"ME\"",
+  "response": "AT+CPMS=\"ME\",\"ME\",\"ME\"\n+CPMS: 0,255,0,255,0,255\n\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CPMS?",
+  "response": "AT+CPMS?\n+CPMS: \"ME\",0,255,\"ME\",0,255,\"ME\",0,255\n\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CPMS=\"MT\",\"MT\",\"MT\"",
+  "response": "AT+CPMS=\"MT\",\"MT\",\"MT\"\nERROR",
+  "first_byte_s": 0.206,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CPMS?",
+  "response": "AT+CPMS?\n+CPMS: \"ME\",0,255,\"ME\",0,255,\"ME\",0,255\n\nOK",
+  "first_byte_s": 0.206,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CPMS=\"SM\",\"SM\",\"SM\"",
+  "response": "AT+CPMS=\"SM\",\"SM\",\"SM\"\n+CPMS: 1,30,1,30,1,30\n\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CPMS?",
+  "response": "AT+CPMS?\n+CPMS: \"SM\",1,30,\"SM\",1,30,\"SM\",1,30\n\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CMGL=\"ALL\"",
+  "response": "AT+CMGL=\"ALL\"\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.208,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CSDH=1",
+  "response": "AT+CSDH=1\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CMGL=\"ALL\"",
+  "response": "AT+CMGL=\"ALL\"\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.203,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CMGR=0",
+  "response": "AT+CMGR=0\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.209,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CSDH=0",
+  "response": "AT+CSDH=0\nOK",
+  "first_byte_s": 0.204,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CMGR=0",
+  "response": "AT+CMGR=0\n<redacted: identifier, location or private data>",
+  "first_byte_s": 0.207,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CSDH?",
+  "response": "AT+CSDH?\n+CSDH: 0\n\nOK",
+  "first_byte_s": 0.211,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT",
+  "response": "AT\nOK",
+  "first_byte_s": 0.206,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT",
+  "response": "AT\nOK",
+  "first_byte_s": 0.208,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT",
+  "response": "AT\nOK",
+  "first_byte_s": 0.2,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT",
+  "response": "AT\nOK",
+  "first_byte_s": 0.202,
+  "total_s": 0.4
+ },
+ {
+  "cmd": "AT",
+  "response": "AT\nOK",
+  "first_byte_s": 0.206,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT",
+  "response": "AT\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT",
+  "response": "AT\nOK",
+  "first_byte_s": 0.21,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT",
+  "response": "AT\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT",
+  "response": "AT\nOK",
+  "first_byte_s": 0.201,
+  "total_s": 0.4
+ },
+ {
+  "cmd": "AT",
+  "response": "AT\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CSQ",
+  "response": "AT+CSQ\n+CSQ: 19,99\n\nOK",
+  "first_byte_s": 0.2,
+  "total_s": 0.4
+ },
+ {
+  "cmd": "AT+CSQ",
+  "response": "AT+CSQ\n+CSQ: 19,99\n\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CSQ",
+  "response": "AT+CSQ\n+CSQ: 19,99\n\nOK",
+  "first_byte_s": 0.205,
+  "total_s": 0.41
+ },
+ {
+  "cmd": "AT+CSQ",
+  "response": "AT+CSQ\n+CSQ: 19,99\n\nOK",
+  "first_byte_s": 0.207,
+  "total_s": 0.42
+ },
+ {
+  "cmd": "AT+CSQ",
+  "response": "AT+CSQ\n+CSQ: 19,99\n\nOK",
+  "first_byte_s": 0.209,
+  "total_s": 0.42
+ }
+]

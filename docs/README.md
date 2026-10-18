@@ -32,6 +32,7 @@ Photos are in `../images/` (T-Deck front/back, (B) V2 top/bottom, `old-waveshare
 - [ting-and-voice.md](ting-and-voice.md): why the A-H is chosen, the Ting/VoLTE caveats.
 - [next-steps.md](next-steps.md): what is left to do, in order.
 - [ui-design-options.md](ui-design-options.md): options and approach for the T-Deck UI (lists of conversations, contacts, files), with linked example screenshots.
+- [sim7600a-h-at-reference.md](sim7600a-h-at-reference.md): what the module actually does (observed), compared with the SIMCom manual and Waveshare wiki; hidden commands; findings for the library. Companion: [sim7600a-h-at-command-index.md](sim7600a-h-at-command-index.md) (896 command names) and [reference/at-probe/](reference/at-probe/) (sanitized raw results).
 - [at-library-plan.md](at-library-plan.md): plan for the AT-command library (SMS and calls first, data as a stretch).
 - [bring-up-checklist.md](bring-up-checklist.md): step-by-step order of work with pass conditions.
 - [legacy/xiao_phone-notes.md](legacy/xiao_phone-notes.md): what the old XIAO sketch (`legacy/xiao_phone.ino`) shows about this modem: 9600 baud, call/SMS/GPS commands.

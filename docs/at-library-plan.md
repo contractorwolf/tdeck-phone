@@ -174,6 +174,18 @@ The plan was checked against the SIMCom SIM7500/SIM7600 AT manual V3.00 (`refere
 
 Still **not verified** on hardware: incoming `RING` and `+CLIP` handling, DTMF, behaviour when message storage is full, busy and no-answer calls, `AT+CLCC=1` auto-reporting, special characters in GSM mode, `ME` storage capacity, and all data commands. They stay as milestones in the plan, not assumptions.
 
+## Update from the full hardware probe (2026-10-18)
+
+A complete read-only probe of the module is written up in [sim7600a-h-at-reference.md](sim7600a-h-at-reference.md). Changes it implies for this plan:
+
+- **Per-command latency is fixed at about 0.2 s to the first byte and 0.41 s to finish**, even for `AT`. Budget serial time accordingly (a five-command status refresh is about 2 s).
+- **SMS storage:** `AT+CPMS="ME","ME","ME"` gives 255 slots (the SIM has 30). `"MT"` is listed as supported but rejected with `ERROR`. Use `ME` as the library's default store, after testing full-storage behaviour and persistence.
+- **Errors:** with `AT+CMEE=1` the library gets numeric codes (`321` invalid index, `303` operation not supported); with `2` it gets text. Plain `ERROR` also means a malformed argument. Parse both numeric and text forms.
+- **Status bar data:** `AT+CIND?` returns battery, signal, service, call, roaming and SMS-full indicators in one read; `AT+CESQ` gives LTE RSRQ/RSRP without parsing `AT+CPSI?`.
+- **Hang-up:** `AT+CVHU?` is 1, so `ATH` is ignored; the library already uses `AT+CHUP`.
+- **Hidden commands:** the module has many commands the manual does not document (an HTTPS client, FTP, SMTP, IMS settings, NV and shell commands). The library must never expose raw AT passthrough without a block list; the dangerous ones are listed in the reference.
+- **Not yet tested** and still milestones, not assumptions: incoming calls, `ATH`, DTMF, `AT+CLCC=1` auto-reporting, full SMS storage, data.
+
 ## Testing
 
 1. **Host unit tests** (no hardware): feed the Parser recorded byte streams and assert on events. Capture real traces from the bench (including URCs interleaved with replies, the slow `+CMS ERROR`, and the boot banner) into fixtures. Cover the Parser, CommandQueue timeouts, and each feature module's state machine against the fake transport.
