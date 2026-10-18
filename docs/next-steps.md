@@ -17,6 +17,8 @@ What is left, in order. Done so far is in [README.md](README.md) and [board-test
 
 ## 3. Firmware: AT layer
 
+Built as a reusable library; the design, API draft and milestones are in [at-library-plan.md](at-library-plan.md). The checklist below is the short form.
+
 - [ ] Line-based serial reader with a state machine; handle URCs (`RING`, `+CLIP`, `+CMTI`, `+CMGS`, `NO CARRIER`, `VOICE CALL: BEGIN/END`) at any time.
 - [ ] Startup sequence: `AT`, `ATE0`, `AT+CMGF=1`, `AT+CSCS="GSM"`, `AT+CLIP=1`, `AT+CNMI=2,1`, wait for registration (`AT+CEREG?`).
 - [ ] SMS send: wait for the `> ` prompt, Ctrl-Z, wait up to 120 s for `+CMGS:`; no other commands while pending.
