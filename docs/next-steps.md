@@ -27,6 +27,8 @@ Built as a reusable library; the design, API draft and milestones are in [at-lib
 
 ## 4. Firmware: phone UI
 
+Options, examples and a recommended approach are in [ui-design-options.md](ui-design-options.md).
+
 - [ ] Keyboard input (T-Keyboard), display layout, contact list, message list and compose screens.
 - [ ] Incoming call and message notifications.
 - [ ] Call screen with answer, hang up, mute, volume.

@@ -31,6 +31,7 @@ Photos are in `../images/` (T-Deck front/back, (B) V2 top/bottom, `old-waveshare
 - [board-test-findings.md](board-test-findings.md): bench results on the A-H HAT (9600 baud, registered on Ting, SMS and voice both work).
 - [ting-and-voice.md](ting-and-voice.md): why the A-H is chosen, the Ting/VoLTE caveats.
 - [next-steps.md](next-steps.md): what is left to do, in order.
+- [ui-design-options.md](ui-design-options.md): options and approach for the T-Deck UI (lists of conversations, contacts, files), with linked example screenshots.
 - [at-library-plan.md](at-library-plan.md): plan for the AT-command library (SMS and calls first, data as a stretch).
 - [bring-up-checklist.md](bring-up-checklist.md): step-by-step order of work with pass conditions.
 - [legacy/xiao_phone-notes.md](legacy/xiao_phone-notes.md): what the old XIAO sketch (`legacy/xiao_phone.ino`) shows about this modem: 9600 baud, call/SMS/GPS commands.
