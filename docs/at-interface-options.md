@@ -1,5 +1,7 @@
 # Ways to send and receive AT commands
 
+> **Status:** the project now uses the old SIM7600A-H HAT, which has a 3.3V UART header (see [parts/waveshare-sim7600x-hat-original.md](parts/waveshare-sim7600x-hat-original.md)). The A/B options below describe the **(B) V2 / G-H fallback**; the AT command sets apply to both modules.
+
 How the T-Deck (or a PC, while bringing things up) can talk AT to the SIM7600G-H, using what the Waveshare HAT already has and by tapping the module's edge pads. Pad numbers and page references are from `reference/SIM7600G-H_SIM7600NA-H_Hardware_Design_V1.10.pdf` (V1.10).
 
 Evidence level: statements about the module come from the SIMCom documents. Statements about the **V2 (B)** HAT are inferred from the photos and the older V1 schematic, and are marked *verify*.

@@ -1,5 +1,7 @@
 # Waveshare SIM7600X 4G HAT (B) V2
 
+> **Fallback modem.** The primary modem is the older A-H HAT ([waveshare-sim7600x-hat-original.md](waveshare-sim7600x-hat-original.md)).
+
 Identified from `images/PXL_20261017_063428644.jpg` (top) and `PXL_20261017_063437686.jpg` (bottom, silk: "SIM7600X 4G HAT (B) V2").
 
 ## What is on the board

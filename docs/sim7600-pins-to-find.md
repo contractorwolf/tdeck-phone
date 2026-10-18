@@ -1,5 +1,7 @@
 # SIM7600G-H pads to find and dead-bug
 
+> **Fallback only:** this dead-bug pad list is for the (B) V2 / SIM7600G-H. The primary route uses the old A-H HAT's header and needs none of it.
+
 Source: `reference/SIM7600G-H_SIM7600NA-H_Hardware_Design_V1.10.pdf` (pin map and signal tables p.19-20, power on/off timing p.29-30, UART level note p.34). The pad numbers match the V1.01 document for the G-H. All module logic pins are **1.8V** (VIH min 1.26V, max 2.0V).
 
 Pad numbers are the module's LCC pad numbers, not HAT silkscreen labels. Verify pad 1 orientation and every pad by continuity to a known net (GND pads) and with a scope or meter before soldering. Use fine (30 AWG wire-wrap) wire and strain-relieve it.

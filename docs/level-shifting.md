@@ -1,5 +1,7 @@
 # Level shifting and control circuits
 
+> **Fallback only:** the old A-H HAT already level-shifts to 3.3V on its header, so this circuit is needed only for the (B) V2 dead-bug route.
+
 The module is 1.8V logic (SIMCom hardware design p.34: "The MODULE UART is 1.8V voltage interface... level shifter circuits should be used"). The T-Deck ESP32-S3 is 3.3V logic with VIH = 0.75 x 3.3V = 2.475V.
 
 ## Do not connect directly
