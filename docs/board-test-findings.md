@@ -21,24 +21,36 @@ Tested 2026-10-17 from a Mac over the HAT's "USB TO UART" micro-USB (CP2102, app
 
 With the antenna on: registered (`CREG`/`CEREG` 0,1), operator `"Ting"` over LTE, MCC-MNC 310-260 (T-Mobile US), band 2, `CSQ` 20, RSRP about -106 dBm. The SMSC read back as T-Mobile's.
 
-## Voice
+## Result: SMS and voice both work (2026-10-17, later)
 
-`ATD+<E.164 number>;` works. The call goes dialing (state 2) to active (state 0) within about 3 s, with `VOICE CALL: BEGIN`, and `AT+CHUP` ends it (`VOICE CALL: END: <duration>`). Done twice to the owner's cell phone; both times a carrier voice menu answered ("calling for Boost or Ting? press 2 for Ting") rather than the phone ringing. That confirms the SIM, IMS and VoLTE voice path work over LTE, but not yet audio to a person. Not understood yet: possibly number routing for the destination.
+After the SIM's line was fixed on the Ting side (below), with the same module and settings:
 
-## SMS: failing
+- **Registered** on Ting over LTE, `AT+CNUM` now returns the line's number (it was empty before).
+- **Voice:** `ATD+<E.164>;` now rings the far end (`AT+CLCC` state 2 dialing, state 3 alerting, state 0 active) and call audio was heard on a headset in the HAT's 3.5mm jack.
+- **SMS:** `AT+CMGF=1`, `AT+CMGS="+1<number>"`, text, Ctrl-Z returned `+CMGS: <n>` and `OK` within seconds, and the text arrived. No `CSMP`/`CSCS` changes were needed (`AT+CSMP?` stayed `17,,0,0`).
 
-Sequence used, which matches the Waveshare wiki: `AT+CMGF=1`, `AT+CMGS="+1<number>"`, wait for `>`, text, Ctrl-Z. The module gives the `>` prompt, then after a delay of up to a few minutes (during which it ignores AT) returns `+CMS ERROR: Unknown error`. The Waveshare FAQ fix (`AT+CSCS="IRA"`, `AT+CSMP=17,167,0,0`) was applied and did not change the result. SMSC is `+12063130004`.
+## What was wrong before
 
-Reading: configuration matches the vendor docs and voice works over IMS, so the failure looks specific to SMS on this SIM, plan or IMEI. Not yet known.
+Voice reached a carrier menu ("Boost or Ting?") instead of the phone, and every SMS attempt failed with `+CMS ERROR: Unknown error` (in several number formats), after the module sat unresponsive for up to a few minutes. The module settings matched the Waveshare wiki throughout. The likely cause was the line on the Ting account: it had been registered with a wrong IMEI that could not be edited (not proven; it worked once the line was redone). Re-running Ting's device setup with the correct IMEI (Ting's checker accepted the module as compatible), the original SIM's ICCID and "Move a number" fixed it.
 
-## Next
+## Ting account notes
 
-- Call and text the SIM from the cell phone to test the receive side (`RING`, `+CLIP`, `+CMTI`).
-- Ask Ting whether SMS and voice are provisioned for this SIM and IMEI.
-- Try a second destination number, ideally on another carrier.
+- Device setup is at `https://tingmobile.com/accounts/device-settings` then Activate a device: IMEI check, SIM type (physical, or "I already have a Ting SIM" with the ICCID), coverage (address), number.
+- The IMEI and ICCID checks are plain page loads with the value in the URL, not API calls, so there is nothing to watch on the network.
+- "Continue to billing" on the number step **placed the order** and showed a confirmation page; there was no separate billing screen. Treat that button as final.
+- The number step has a hidden "Get a new number" area-code dropdown (default 720) and a "Keep my number" phone field. Neither applies to "Move a number".
+- The 19-digit ICCID must be typed as text. Passing it through a numeric form-fill rounded it (`...75717` became `...76000`) and Ting rejected it with "ICCID Validation failed". The 19-digit value from `AT+CICCID` passes the Luhn check as is.
+- A SIM from another source can fail Ting's ICCID check even though its ICCID and IMSI look like the same issuer.
 
 ## Notes for the firmware
 
-- Handle a long `AT+CMGS` wait: the module can be unresponsive for 2+ minutes. Use a timeout of at least 120 s, and do not send other commands while waiting.
-- Dial with `ATD+<E.164>;` and hang up with `AT+CHUP`; poll `AT+CLCC` for state.
-- Follow Waveshare's wiki for this HAT (https://www.waveshare.com/wiki/SIM7600X_4G_%26_LTE_Cat-1_HAT): it documents the `CSMP`/`CSCS` SMS fix, the VoLTE commands, `AT+CHUP` and the audio tuning commands.
+- Handle a long `AT+CMGS` wait: with a bad line the module can be unresponsive for 2+ minutes, so use a timeout of at least 120 s and do not send other commands while waiting.
+- A pending SMS send blocks other commands, including `ATD`.
+- Dial with `ATD+<E.164>;` and hang up with `AT+CHUP`; poll `AT+CLCC` for state (3 is ringing, 0 is active). A `NO CARRIER` after a short call means the far end ended it.
+- `AT+CNUM` is empty on some lines; do not rely on it.
+- Follow Waveshare's wiki for this HAT (https://www.waveshare.com/wiki/SIM7600X_4G_%26_LTE_Cat-1_HAT): it documents the `CSMP`/`CSCS` SMS fix, the VoLTE commands (`at+voltesetting`), `AT+CHUP` and the audio tuning commands.
+
+## Next
+
+- Wire the T-Deck Grove UART (GPIO43/44) to the HAT side header at 9600 baud (checklist Phase 3 and 4).
+- Test receive: call and text the line from another phone and watch for `RING`, `+CLIP` and `+CMTI`.

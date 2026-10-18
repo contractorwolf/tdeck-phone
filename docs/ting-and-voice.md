@@ -18,3 +18,7 @@ US carriers have shut down 2G/3G, so voice on an LTE module generally needs VoLT
 
 1. Read the A-H's IMEI with `AT+CGSN` and note `AT+COPS?`, `AT+CEREG?` while a call works.
 2. If the G-H route is ever revived, read its IMEI and run it through Ting's checker (or ask Ting support whether a SIM7600G-H is accepted for voice) before building anything.
+
+## Update: confirmed working
+
+On the A-H with the Ting line fixed (see [board-test-findings.md](board-test-findings.md)), voice calls ring through with audio on the HAT's headset jack, and SMS sends and arrives. VoLTE was already enabled on the module. An earlier failure was most likely the Ting line being registered against a wrong IMEI, not the module.
