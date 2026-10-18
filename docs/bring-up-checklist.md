@@ -1,5 +1,7 @@
 # Bring-up checklist (old SIM7600A-H HAT)
 
+Bench result so far: the module answers at **9600 baud**, registers on Ting and places calls; SMS fails. See [board-test-findings.md](board-test-findings.md).
+
 Order of work from "nothing connected" to "T-Deck sends an SMS and places a call". Each phase has a pass condition; do not move on until it passes. Board: [parts/waveshare-sim7600x-hat-original.md](parts/waveshare-sim7600x-hat-original.md). AT commands: [at-interface-options.md](at-interface-options.md). Voice caveats: [ting-and-voice.md](ting-and-voice.md).
 
 The fallback route for the (B) V2 / G-H (dead-bug UART, level shifting) is in [parts/waveshare-sim7600x-hat.md](parts/waveshare-sim7600x-hat.md), [sim7600-pins-to-find.md](sim7600-pins-to-find.md) and [level-shifting.md](level-shifting.md).
@@ -18,7 +20,7 @@ The fallback route for the (B) V2 / G-H (dead-bug UART, level shifting) is in [p
 
 1. [ ] Set the UART JMP to route the module to the **CP2102** (check the Waveshare wiki for the exact positions).
 2. [ ] Antenna and SIM in, connect the "USB TO UART" micro-USB. Press PWRKEY (button) if the PWR LED does not light. Wait 15-20 s for the NET LED to blink.
-3. [ ] Find the port (`ls /dev/cu.*`; a CP210x driver may be needed on macOS) and open it: `venv/bin/python -m serial.tools.miniterm <port> 115200`.
+3. [ ] Find the port (`ls /dev/cu.*`; a CP210x driver may be needed on macOS) and open it: `venv/bin/python -m serial.tools.miniterm <port> 9600`.
 4. [ ] Run these:
 
    | Command | Expect |
