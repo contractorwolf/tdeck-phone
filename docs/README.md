@@ -2,6 +2,18 @@
 
 Goal: a handheld phone. A LilyGO T-Deck running custom firmware talks over a UART to a Waveshare SIM7600 4G HAT, for SMS and voice calls. The primary modem is the **older Waveshare SIM7600X HAT with a SIM7600A-H**, which already placed calls with the user's Ting SIM and has a 3.3V UART header. The Waveshare (B) V2 with a SIM7600G-H (dead-bug plan) is the fallback.
 
+## Status
+
+Done:
+- Parts identified from photos (T-Deck, both Waveshare HATs); datasheets, schematics and AT manual downloaded to `reference/`.
+- Chose the old SIM7600A-H HAT as the modem. Its 3.3V header UART means no level shifting or dead-bugging. The (B) V2 / SIM7600G-H route is documented as a fallback.
+- Bench-tested the A-H from a Mac over the CP2102 USB at 9600 baud: identified the module, settings and network, registered on Ting over LTE.
+- Voice calls work (ringing, audio on the HAT's headset jack) and SMS sends and arrives, after fixing the line on the Ting account. See [board-test-findings.md](board-test-findings.md).
+- Read the legacy XIAO sketch for what it shows about the hardware ([legacy/xiao_phone-notes.md](legacy/xiao_phone-notes.md)).
+- Bring-up checklist written for the old board.
+
+Next: see [next-steps.md](next-steps.md).
+
 ## Parts
 
 | # | Part | Role | Notes |
@@ -18,6 +30,7 @@ Photos are in `../images/` (T-Deck front/back, (B) V2 top/bottom, `old-waveshare
 - [parts/waveshare-sim7600x-hat-original.md](parts/waveshare-sim7600x-hat-original.md): the primary modem and how to wire it to the T-Deck.
 - [board-test-findings.md](board-test-findings.md): bench results on the A-H HAT (9600 baud, registered on Ting, SMS and voice both work).
 - [ting-and-voice.md](ting-and-voice.md): why the A-H is chosen, the Ting/VoLTE caveats.
+- [next-steps.md](next-steps.md): what is left to do, in order.
 - [bring-up-checklist.md](bring-up-checklist.md): step-by-step order of work with pass conditions.
 - [legacy/xiao_phone-notes.md](legacy/xiao_phone-notes.md): what the old XIAO sketch (`legacy/xiao_phone.ino`) shows about this modem: 9600 baud, call/SMS/GPS commands.
 - [at-interface-options.md](at-interface-options.md): every way to send/receive AT commands, and the AT command lists.
