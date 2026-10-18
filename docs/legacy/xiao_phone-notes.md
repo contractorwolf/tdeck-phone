@@ -31,7 +31,7 @@ Things the sketch never does, which tells us what the old setup did **not** need
 ### Voice call
 
 ```
-ATD+17044923691;
+ATD+15555550123;
 ```
 
 (Number shown with the digits redacted from the pattern: `ATD+<country code><number>;`.) Notable points:
@@ -50,7 +50,7 @@ delay(200)                (stand-in for waiting for the "> " prompt)
 0x1A                      (Ctrl-Z)
 ```
 
-- The destination is in quotes, and the number here is bare digits (`17044923691`), without a `+`.
+- The destination is in quotes, and the number here is bare digits (`15555550123`), without a `+`.
 - The code **never sets `AT+CMGF=1`** (text mode). Either the module was left in text mode from an earlier manual command, or it is a default on that firmware. It is not safe to rely on: the T-Deck firmware should set `AT+CMGF=1` (and `AT+CSCS="GSM"`) at startup. Worth verifying with `AT+CMGF?` on the A-H.
 - The prompt wait is a blind 200 ms delay. The commented-out Adafruit FONA code at the end of the file shows the better pattern: send `AT+CMGS`, wait for the `> ` prompt, send text and Ctrl-Z, then wait **up to 10 seconds** for `+CMGS:` and then `OK`.
 - The sketch appends ` @<millis>` to each message, probably so the receiver would not drop duplicates. Not needed.
