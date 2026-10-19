@@ -1,0 +1,1062 @@
+[
+{
+"cmd": "+AUTOREGCFG",
+"test": "AT+AUTOREGCFG=?\nERROR",
+"read": "AT+AUTOREGCFG?\nERROR"
+},
+{
+"cmd": "+BLEADDR",
+"test": "AT+BLEADDR=?\nERROR",
+"read": "AT+BLEADDR?\nERROR"
+},
+{
+"cmd": "+BLEADDRESS",
+"test": "AT+BLEADDRESS=?\nERROR",
+"read": "AT+BLEADDRESS?\nERROR"
+},
+{
+"cmd": "+BLEADV",
+"test": "AT+BLEADV=?\nERROR",
+"read": "AT+BLEADV?\nERROR"
+},
+{
+"cmd": "+BLECCON",
+"test": "AT+BLECCON=?\nERROR",
+"read": "AT+BLECCON?\nERROR"
+},
+{
+"cmd": "+BLECGC",
+"test": "AT+BLECGC=?\nERROR",
+"read": "AT+BLECGC?\nERROR"
+},
+{
+"cmd": "+BLECGD",
+"test": "AT+BLECGD=?\nERROR",
+"read": "AT+BLECGD?\nERROR"
+},
+{
+"cmd": "+BLECGDT",
+"test": "AT+BLECGDT=?\nERROR",
+"read": "AT+BLECGDT?\nERROR"
+},
+{
+"cmd": "+BLECRC",
+"test": "AT+BLECRC=?\nERROR",
+"read": "AT+BLECRC?\nERROR"
+},
+{
+"cmd": "+BLECRD",
+"test": "AT+BLECRD=?\nERROR",
+"read": "AT+BLECRD?\nERROR"
+},
+{
+"cmd": "+BLECSS",
+"test": "AT+BLECSS=?\nERROR",
+"read": "AT+BLECSS?\nERROR"
+},
+{
+"cmd": "+BLECWC",
+"test": "AT+BLECWC=?\nERROR",
+"read": "AT+BLECWC?\nERROR"
+},
+{
+"cmd": "+BLECWD",
+"test": "AT+BLECWD=?\nERROR",
+"read": "AT+BLECWD?\nERROR"
+},
+{
+"cmd": "+BLEHOST",
+"test": "AT+BLEHOST=?\nERROR",
+"read": "AT+BLEHOST?\nERROR"
+},
+{
+"cmd": "+BLESCAN",
+"test": "AT+BLESCAN=?\nERROR",
+"read": "AT+BLESCAN?\nERROR"
+},
+{
+"cmd": "+BLESCLRADVDATA",
+"test": "AT+BLESCLRADVDATA=?\nERROR",
+"read": "AT+BLESCLRADVDATA?\nERROR"
+},
+{
+"cmd": "+BLESIND",
+"test": "AT+BLESIND=?\nERROR",
+"read": "AT+BLESIND?\nERROR"
+},
+{
+"cmd": "+BLESNTY",
+"test": "AT+BLESNTY=?\nERROR",
+"read": "AT+BLESNTY?\nERROR"
+},
+{
+"cmd": "+BLESRREQ",
+"test": "AT+BLESRREQ=?\nERROR",
+"read": "AT+BLESRREQ?\nERROR"
+},
+{
+"cmd": "+BLESRSP",
+"test": "AT+BLESRSP=?\nERROR",
+"read": "AT+BLESRSP?\nERROR"
+},
+{
+"cmd": "+BLESSAD",
+"test": "AT+BLESSAD=?\nERROR",
+"read": "AT+BLESSAD?\nERROR"
+},
+{
+"cmd": "+BLESSCAD",
+"test": "AT+BLESSCAD=?\nERROR",
+"read": "AT+BLESSCAD?\nERROR"
+},
+{
+"cmd": "+BLESSCRM",
+"test": "AT+BLESSCRM=?\nERROR",
+"read": "AT+BLESSCRM?\nERROR"
+},
+{
+"cmd": "+BLESSDAD",
+"test": "AT+BLESSDAD=?\nERROR",
+"read": "AT+BLESSDAD?\nERROR"
+},
+{
+"cmd": "+BLESSDRM",
+"test": "AT+BLESSDRM=?\nERROR",
+"read": "AT+BLESSDRM?\nERROR"
+},
+{
+"cmd": "+BLESSETADVDATA",
+"test": "AT+BLESSETADVDATA=?\nERROR",
+"read": "AT+BLESSETADVDATA?\nERROR"
+},
+{
+"cmd": "+BLESSETADVPARAM",
+"test": "AT+BLESSETADVPARAM=?\nERROR",
+"read": "AT+BLESSETADVPARAM?\nERROR"
+},
+{
+"cmd": "+BLESSETSCANRESP",
+"test": "AT+BLESSETSCANRESP=?\nERROR",
+"read": "AT+BLESSETSCANRESP?\nERROR"
+},
+{
+"cmd": "+BLESSRM",
+"test": "AT+BLESSRM=?\nERROR",
+"read": "AT+BLESSRM?\nERROR"
+},
+{
+"cmd": "+BLESTATUS",
+"test": "AT+BLESTATUS=?\nERROR",
+"read": "AT+BLESTATUS?\nERROR"
+},
+{
+"cmd": "+BLESWREQ",
+"test": "AT+BLESWREQ=?\nERROR",
+"read": "AT+BLESWREQ?\nERROR"
+},
+{
+"cmd": "+BTADDR",
+"test": "AT+BTADDR=?\nERROR",
+"read": "AT+BTADDR?\nERROR"
+},
+{
+"cmd": "+BTCFG",
+"test": "AT+BTCFG=?\nERROR",
+"read": "AT+BTCFG?\nERROR"
+},
+{
+"cmd": "+CAACK",
+"test": "AT+CAACK=?\nERROR",
+"read": "AT+CAACK?\nERROR"
+},
+{
+"cmd": "+CACFG",
+"test": "AT+CACFG=?\nERROR",
+"read": "AT+CACFG?\nERROR"
+},
+{
+"cmd": "+CACID",
+"test": "AT+CACID=?\nERROR",
+"read": "AT+CACID?\nERROR"
+},
+{
+"cmd": "+CAEMODE",
+"test": "AT+CAEMODE=?\nERROR",
+"read": "AT+CAEMODE?\nERROR"
+},
+{
+"cmd": "+CAPNMODE",
+"test": "AT+CAPNMODE=?\nERROR",
+"read": "AT+CAPNMODE?\nERROR"
+},
+{
+"cmd": "+CASRIP",
+"test": "AT+CASRIP=?\nERROR",
+"read": "AT+CASRIP?\nERROR"
+},
+{
+"cmd": "+CASTATE",
+"test": "AT+CASTATE=?\nERROR",
+"read": "AT+CASTATE?\nERROR"
+},
+{
+"cmd": "+CBAINIT",
+"test": "AT+CBAINIT=?\nERROR",
+"read": "AT+CBAINIT?\nERROR"
+},
+{
+"cmd": "+CBALIST",
+"test": "AT+CBALIST=?\nERROR",
+"read": "AT+CBALIST?\nERROR"
+},
+{
+"cmd": "+CBAPPS",
+"test": "AT+CBAPPS=?\nERROR",
+"read": "AT+CBAPPS?\nERROR"
+},
+{
+"cmd": "+CBART",
+"test": "AT+CBART=?\nERROR",
+"read": "AT+CBART?\nERROR"
+},
+{
+"cmd": "+CCFC",
+"test": "AT+CCFC=?\n+CCFC: (0,1,2,3,4,5)\n\nOK",
+"read": "AT+CCFC?\nERROR"
+},
+{
+"cmd": "+CCID",
+"test": "AT+CCID=?\nOK",
+"read": "AT+CCID?\nERROR"
+},
+{
+"cmd": "+CCODECSWTICH",
+"test": "AT+CCODECSWTICH=?\nERROR",
+"read": "AT+CCODECSWTICH?\nERROR"
+},
+{
+"cmd": "+CCONCINDEX",
+"test": "AT+CCONCINDEX=?\nERROR",
+"read": "AT+CCONCINDEX?\nERROR"
+},
+{
+"cmd": "+CCONFSAVE",
+"test": "AT+CCONFSAVE=?\nERROR",
+"read": "AT+CCONFSAVE?\nERROR"
+},
+{
+"cmd": "+CCWA",
+"test": "AT+CCWA=?\n+CCWA: (0-1)\n\nOK",
+"read": "AT+CCWA?\n+CCWA: 0\n\nOK"
+},
+{
+"cmd": "+CDEVICE",
+"test": "AT+CDEVICE=?\nERROR",
+"read": "AT+CDEVICE?\nERROR"
+},
+{
+"cmd": "+CDNSCFG",
+"test": "AT+CDNSCFG=?\nERROR",
+"read": "AT+CDNSCFG?\nERROR"
+},
+{
+"cmd": "+CEER",
+"test": "AT+CEER=?\nOK",
+"read": "AT+CEER?\nERROR"
+},
+{
+"cmd": "+CENG",
+"test": "AT+CENG=?\nERROR",
+"read": "AT+CENG?\nERROR"
+},
+{
+"cmd": "+CENPRX",
+"test": "AT+CENPRX=?\nERROR",
+"read": "AT+CENPRX?\nERROR"
+},
+{
+"cmd": "+CFNSMOD",
+"test": "AT+CFNSMOD=?\n+CFNSMOD: (0x00FF,0x0073,0x00F3,0x01FF)\n\nOK",
+"read": "AT+CFNSMOD?\nERROR"
+},
+{
+"cmd": "+CFSDFILE",
+"test": "AT+CFSDFILE=?\nERROR",
+"read": "AT+CFSDFILE?\nERROR"
+},
+{
+"cmd": "+CFSGFIS",
+"test": "AT+CFSGFIS=?\nERROR",
+"read": "AT+CFSGFIS?\nERROR"
+},
+{
+"cmd": "+CFSGFRS",
+"test": "AT+CFSGFRS=?\nERROR",
+"read": "AT+CFSGFRS?\nERROR"
+},
+{
+"cmd": "+CFSINIT",
+"test": "AT+CFSINIT=?\nERROR",
+"read": "AT+CFSINIT?\nERROR"
+},
+{
+"cmd": "+CFSRFILE",
+"test": "AT+CFSRFILE=?\nERROR",
+"read": "AT+CFSRFILE?\nERROR"
+},
+{
+"cmd": "+CFSTERM",
+"test": "AT+CFSTERM=?\nERROR",
+"read": "AT+CFSTERM?\nERROR"
+},
+{
+"cmd": "+CFSWFILE",
+"test": "AT+CFSWFILE=?\nERROR",
+"read": "AT+CFSWFILE?\nERROR"
+},
+{
+"cmd": "+CFTPSMODE",
+"test": "AT+CFTPSMODE=?\nERROR",
+"read": "AT+CFTPSMODE?\nERROR"
+},
+{
+"cmd": "+CFTRXBUF",
+"test": "AT+CFTRXBUF=?\nERROR",
+"read": "AT+CFTRXBUF?\nERROR"
+},
+{
+"cmd": "+CGCONTRDP",
+"test": "AT+CGCONTRDP=?\n+CGCONTRDP: ( 2 )\n\nOK",
+"read": "AT+CGCONTRDP?\nERROR"
+},
+{
+"cmd": "+CGEQMIN",
+"test": "AT+CGEQMIN=?\n+CGEQMIN: \"IP\",(0-4),(0-11520),(0-42200),(0-11520),(0-42200),(0-2),(0-1520),(\"0E0\",\"1E1\",\"1E2\",\"7E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\"),(\"0E0\",\"5E2\",\"1E2\",\"5E3\",\"4E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\",\"6E8\"),(0-3),(0,100-4000),(0-3),(0-1),(0-1)\n+CGEQMIN: \"PPP\",(0-4),(0-11520),(0-42200),(0-11520),(0-42200),(0-2),(0-1520),(\"0E0\",\"1E1\",\"1E2\",\"7E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\"),(\"0E0\",\"5E2\",\"1E2\",\"5E3\",\"4E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\",\"6E8\"),(0-3),(0,100-4000),(0-3),(0-1),(0-1)\n+CGEQMIN: \"IPV6\",(0-4),(0-11520),(0-42200),(0-11520),(0-42200),(0-2),(0-1520),(\"0E0\",\"1E1\",\"1E2\",\"7E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\"),(\"0E0\",\"5E2\",\"1E2\",\"5E3\",\"4E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\",\"6E8\"),(0-3),(0,100-4000),(0-3),(0-1),(0-1)\n+CGEQMIN: \"IPV4V6\",(0-4),(0-11520),(0-42200),(0-11520),(0-42200),(0-2),(0-1520),(\"0E0\",\"1E1\",\"1E2\",\"7E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\"),(\"0E0\",\"5E2\",\"1E2\",\"5E3\",\"4E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\",\"6E8\"),(0-3),(0,100-4000),(0-3),(0-1),(0-1)\n\nOK",
+"read": "AT+CGEQMIN?\n+CGEQMIN: \n\nOK"
+},
+{
+"cmd": "+CGEQOSRDP",
+"test": "AT+CGEQOSRDP=?\nOK",
+"read": "AT+CGEQOSRDP?\nERROR"
+},
+{
+"cmd": "+CGEQREQ",
+"test": "AT+CGEQREQ=?\n+CGEQREQ: \"IP\",(0-4),(0-11520),(0-42200),(0-11520),(0-42200),(0-2),(0-1520),(\"0E0\",\"1E1\",\"1E2\",\"7E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\"),(\"0E0\",\"5E2\",\"1E2\",\"5E3\",\"4E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\",\"6E8\"),(0-3),(0,100-4000),(0-3),(0-1),(0-1)\n+CGEQREQ: \"PPP\",(0-4),(0-11520),(0-42200),(0-11520),(0-42200),(0-2),(0-1520),(\"0E0\",\"1E1\",\"1E2\",\"7E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\"),(\"0E0\",\"5E2\",\"1E2\",\"5E3\",\"4E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\",\"6E8\"),(0-3),(0,100-4000),(0-3),(0-1),(0-1)\n+CGEQREQ: \"IPV6\",(0-4),(0-11520),(0-42200),(0-11520),(0-42200),(0-2),(0-1520),(\"0E0\",\"1E1\",\"1E2\",\"7E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\"),(\"0E0\",\"5E2\",\"1E2\",\"5E3\",\"4E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\",\"6E8\"),(0-3),(0,100-4000),(0-3),(0-1),(0-1)\n+CGEQREQ: \"IPV4V6\",(0-4),(0-11520),(0-42200),(0-11520),(0-42200),(0-2),(0-1520),(\"0E0\",\"1E1\",\"1E2\",\"7E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\"),(\"0E0\",\"5E2\",\"1E2\",\"5E3\",\"4E3\",\"1E3\",\"1E4\",\"1E5\",\"1E6\",\"6E8\"),(0-3),(0,100-4000),(0-3),(0-1),(0-1)\n\nOK",
+"read": "AT+CGEQREQ?\n+CGEQREQ: 2,2,0,0,0,0,2,0,\"0E0\",\"0E0\",3,0,1,0,1\n\nOK"
+},
+{
+"cmd": "+CGEREP",
+"test": "AT+CGEREP=?\n+CGEREP: (0-2),(0-1)\n\nOK",
+"read": "AT+CGEREP?\n+CGEREP: 0,0\n\nOK"
+},
+{
+"cmd": "+CGERG",
+"test": "AT+CGERG=?\nERROR",
+"read": "AT+CGERG?\nERROR"
+},
+{
+"cmd": "+CGGRTV",
+"test": "AT+CGGRTV=?\nERROR",
+"read": "AT+CGGRTV?\nERROR"
+},
+{
+"cmd": "+CGMM",
+"test": "AT+CGMM=?\nOK",
+"read": "AT+CGMM?\nERROR"
+},
+{
+"cmd": "+CGMR",
+"test": "AT+CGMR=?\nOK",
+"read": "AT+CGMR?\nERROR"
+},
+{
+"cmd": "+CGNAPN",
+"test": "AT+CGNAPN=?\nERROR",
+"read": "AT+CGNAPN?\nERROR"
+},
+{
+"cmd": "+CGNSCFG",
+"test": "AT+CGNSCFG=?\nERROR",
+"read": "AT+CGNSCFG?\nERROR"
+},
+{
+"cmd": "+CGNSCPY",
+"test": "AT+CGNSCPY=?\nERROR",
+"read": "AT+CGNSCPY?\nERROR"
+},
+{
+"cmd": "+CGNSHOR",
+"test": "AT+CGNSHOR=?\nERROR",
+"read": "AT+CGNSHOR?\nERROR"
+},
+{
+"cmd": "+CGNSMOD",
+"test": "AT+CGNSMOD=?\nERROR",
+"read": "AT+CGNSMOD?\nERROR"
+},
+{
+"cmd": "+CGNSNMEA",
+"test": "AT+CGNSNMEA=?\nERROR",
+"read": "AT+CGNSNMEA?\nERROR"
+},
+{
+"cmd": "+CGNSPORT",
+"test": "AT+CGNSPORT=?\nERROR",
+"read": "AT+CGNSPORT?\nERROR"
+},
+{
+"cmd": "+CGNSRTMS",
+"test": "AT+CGNSRTMS=?\nERROR",
+"read": "AT+CGNSRTMS?\nERROR"
+},
+{
+"cmd": "+CGNSSCMD",
+"test": "AT+CGNSSCMD=?\nERROR",
+"read": "AT+CGNSSCMD?\nERROR"
+},
+{
+"cmd": "+CGNSSIPR",
+"test": "AT+CGNSSIPR=?\nERROR",
+"read": "AT+CGNSSIPR?\nERROR"
+},
+{
+"cmd": "+CGNSSNMEA",
+"test": "AT+CGNSSNMEA=?\nERROR",
+"read": "AT+CGNSSNMEA?\nERROR"
+},
+{
+"cmd": "+CGNSSPROD",
+"test": "AT+CGNSSPROD=?\nERROR",
+"read": "AT+CGNSSPROD?\nERROR"
+},
+{
+"cmd": "+CGNSSTST",
+"test": "AT+CGNSSTST=?\nERROR",
+"read": "AT+CGNSSTST?\nERROR"
+},
+{
+"cmd": "+CGNSSUPL",
+"test": "AT+CGNSSUPL=?\nERROR",
+"read": "AT+CGNSSUPL?\nERROR"
+},
+{
+"cmd": "+CGNSSUPLCFG",
+"test": "AT+CGNSSUPLCFG=?\nERROR",
+"read": "AT+CGNSSUPLCFG?\nERROR"
+},
+{
+"cmd": "+CGNSUTIPR",
+"test": "AT+CGNSUTIPR=?\nERROR",
+"read": "AT+CGNSUTIPR?\nERROR"
+},
+{
+"cmd": "+CGNSXTRA",
+"test": "AT+CGNSXTRA=?\nERROR",
+"read": "AT+CGNSXTRA?\nERROR"
+},
+{
+"cmd": "+CGPADDR",
+"test": "AT+CGPADDR=?\n+CGPADDR: (1,2,3)\n\nOK",
+"read": "AT+CGPADDR?\nERROR"
+},
+{
+"cmd": "+CGPIN",
+"test": "AT+CGPIN=?\nERROR",
+"read": "AT+CGPIN?\nERROR"
+},
+{
+"cmd": "+CGPSNEMARATE",
+"test": "AT+CGPSNEMARATE=?\nERROR",
+"read": "AT+CGPSNEMARATE?\nERROR"
+},
+{
+"cmd": "+CGTFT",
+"test": "AT+CGTFT=?\n+CGTFT: \"IP\",(1-16),(0-255),,(0-255),(0-65535.0-65535),(0-65535.0-65535),(0-FFFFFFFF),(0-255.0-255),(0-FFFFF)\n+CGTFT: \"PPP\",(1-16),(0-255),,(0-255),(0-65535.0-65535),(0-65535.0-65535),(0-FFFFFFFF),(0-255.0-255),(0-FFFFF)\n+CGTFT: \"IPV6\",(1-16),(0-255),,(0-255),(0-65535.0-65535),(0-65535.0-65535),(0-FFFFFFFF),(0-255.0-255),(0-FFFFF)\n+CGTFT: \"IPV4V6\",(1-16),(0-255),,(0-255),(0-65535.0-65535),(0-65535.0-65535),(0-FFFFFFFF),(0-255.0-255),(0-FFFFF)\n\nOK",
+"read": "AT+CGTFT?\n+CGTFT: \n\nOK"
+},
+{
+"cmd": "+CHTPCFG",
+"test": "AT+CHTPCFG=?\nERROR",
+"read": "AT+CHTPCFG?\nERROR"
+},
+{
+"cmd": "+CIFSREX",
+"test": "AT+CIFSREX=?\nERROR",
+"read": "AT+CIFSREX?\nERROR"
+},
+{
+"cmd": "+CIPATS",
+"test": "AT+CIPATS=?\nERROR",
+"read": "AT+CIPATS?\nERROR"
+},
+{
+"cmd": "+CIPCFG",
+"test": "AT+CIPCFG=?\nERROR",
+"read": "AT+CIPCFG?\nERROR"
+},
+{
+"cmd": "+CIPHEXS",
+"test": "AT+CIPHEXS=?\nERROR",
+"read": "AT+CIPHEXS?\nERROR"
+},
+{
+"cmd": "+CIPOPTION",
+"test": "AT+CIPOPTION=?\nERROR",
+"read": "AT+CIPOPTION?\nERROR"
+},
+{
+"cmd": "+CIPRDTIMER",
+"test": "AT+CIPRDTIMER=?\nERROR",
+"read": "AT+CIPRDTIMER?\nERROR"
+},
+{
+"cmd": "+CIPSETAPN",
+"test": "AT+CIPSETAPN=?\nERROR",
+"read": "AT+CIPSETAPN?\nERROR"
+},
+{
+"cmd": "+CIPSGTXT",
+"test": "AT+CIPSGTXT=?\nERROR",
+"read": "AT+CIPSGTXT?\nERROR"
+},
+{
+"cmd": "+CIPSHOWTP",
+"test": "AT+CIPSHOWTP=?\nERROR",
+"read": "AT+CIPSHOWTP?\nERROR"
+},
+{
+"cmd": "+CIPSRI",
+"test": "AT+CIPSRI=?\nERROR",
+"read": "AT+CIPSRI?\nERROR"
+},
+{
+"cmd": "+CIPSTATUS",
+"test": "AT+CIPSTATUS=?\nERROR",
+"read": "AT+CIPSTATUS?\nERROR"
+},
+{
+"cmd": "+CIPTKA",
+"test": "AT+CIPTKA=?\nERROR",
+"read": "AT+CIPTKA?\nERROR"
+},
+{
+"cmd": "+CIPUDPMODE",
+"test": "AT+CIPUDPMODE=?\nERROR",
+"read": "AT+CIPUDPMODE?\nERROR"
+},
+{
+"cmd": "+CLAN",
+"test": "AT+CLAN=?\nERROR",
+"read": "AT+CLAN?\nERROR"
+},
+{
+"cmd": "+CLDTMF",
+"test": "AT+CLDTMF=?\nERROR",
+"read": "AT+CLDTMF?\nERROR"
+},
+{
+"cmd": "+CLIR",
+"test": "AT+CLIR=?\n+CLIR: (0-2)\n\nOK",
+"read": "AT+CLIR?\nERROR"
+},
+{
+"cmd": "+CLPORT",
+"test": "AT+CLPORT=?\nERROR",
+"read": "AT+CLPORT?\nERROR"
+},
+{
+"cmd": "+CLTS",
+"test": "AT+CLTS=?\nERROR",
+"read": "AT+CLTS?\nERROR"
+},
+{
+"cmd": "+CMGENREF",
+"test": "AT+CMGENREF=?\nOK",
+"read": "AT+CMGENREF?\nERROR"
+},
+{
+"cmd": "+CMSSEXM",
+"test": "AT+CMSSEXM=?\nOK",
+"read": "AT+CMSSEXM?\nERROR"
+},
+{
+"cmd": "+CMUX",
+"test": "AT+CMUX=?\n+CMUX: (0),(0),(1-8),(1-1500),(0),(0),(2-1000)\n\nOK",
+"read": "AT+CMUX?\n+CMUX: 0,0,5,118,0,0,600\n\nOK"
+},
+{
+"cmd": "+CNBS",
+"test": "AT+CNBS=?\nERROR",
+"read": "AT+CNBS?\nERROR"
+},
+{
+"cmd": "+CNDS",
+"test": "AT+CNDS=?\nERROR",
+"read": "AT+CNDS?\nERROR"
+},
+{
+"cmd": "+CNSN",
+"test": "AT+CNSN=?\n+CNSN: (0x0000-0x7FFF)\n\nOK",
+"read": "AT+CNSN?\nERROR"
+},
+{
+"cmd": "+CNTPCFG",
+"test": "AT+CNTPCFG=?\nERROR",
+"read": "AT+CNTPCFG?\nERROR"
+},
+{
+"cmd": "+CNUM",
+"test": "AT+CNUM=?\nOK",
+"read": "AT+CNUM?\nERROR"
+},
+{
+"cmd": "+COLP",
+"test": "AT+COLP=?\n+COLP: (0-1)\n\nOK",
+"read": "AT+COLP?\nERROR"
+},
+{
+"cmd": "+CPBR",
+"test": "AT+CPBR=?\n+CPBR: (1-100),40,14\n\nOK",
+"read": "AT+CPBR?\nERROR"
+},
+{
+"cmd": "+CPBS",
+"test": "AT+CPBS=?\n+CPBS: (\"SM\",\"DC\",\"FD\",\"LD\",\"MC\",\"ME\",\"RC\",\"EN\",\"ON\")\n\nOK",
+"read": "AT+CPBS?\n+CPBS: \"SM\",3,100\n\nOK"
+},
+{
+"cmd": "+CPBSPARAM",
+"test": "AT+CPBSPARAM=?\nERROR",
+"read": "AT+CPBSPARAM?\nERROR"
+},
+{
+"cmd": "+CPCMCLKWB",
+"test": "AT+CPCMCLKWB=?\nERROR",
+"read": "AT+CPCMCLKWB?\nERROR"
+},
+{
+"cmd": "+CPCMRATION",
+"test": "AT+CPCMRATION=?\nERROR",
+"read": "AT+CPCMRATION?\nERROR"
+},
+{
+"cmd": "+CPSITD",
+"test": "AT+CPSITD=?\nERROR",
+"read": "AT+CPSITD?\nERROR"
+},
+{
+"cmd": "+CRAI",
+"test": "AT+CRAI=?\nERROR",
+"read": "AT+CRAI?\nERROR"
+},
+{
+"cmd": "+CRATSRCH",
+"test": "AT+CRATSRCH=?\nERROR",
+"read": "AT+CRATSRCH?\nERROR"
+},
+{
+"cmd": "+CRC",
+"test": "AT+CRC=?\n+CRC: (0,1)\n\nOK",
+"read": "AT+CRC?\n+CRC: 0\n\nOK"
+},
+{
+"cmd": "+CRIICNAU8X",
+"test": "AT+CRIICNAU8X=?\nERROR",
+"read": "AT+CRIICNAU8X?\nERROR"
+},
+{
+"cmd": "+CRINGSET",
+"test": "AT+CRINGSET=?\nERROR",
+"read": "AT+CRINGSET?\nERROR"
+},
+{
+"cmd": "+CRRCSTATE",
+"test": "AT+CRRCSTATE=?\nERROR",
+"read": "AT+CRRCSTATE?\nERROR"
+},
+{
+"cmd": "+CRXVOL",
+"test": "AT+CRXVOL=?\n+CRXVOL: (0x0000-0xFFFF)\n\nOK",
+"read": "AT+CRXVOL?\nERROR"
+},
+{
+"cmd": "+CSALPHA",
+"test": "AT+CSALPHA=?\n+CSALPHA: (0-1)\n\nOK",
+"read": "AT+CSALPHA?\n+CSALPHA: 0\n\nOK"
+},
+{
+"cmd": "+CSCLK",
+"test": "AT+CSCLK=?\n+CSCLK: (0-1)\n\nOK",
+"read": "AT+CSCLK?\n+CSCLK: 0\n\nOK"
+},
+{
+"cmd": "+CSCON",
+"test": "AT+CSCON=?\nERROR",
+"read": "AT+CSCON?\nERROR"
+},
+{
+"cmd": "+CSDP",
+"test": "AT+CSDP=?\nERROR",
+"read": "AT+CSDP?\nERROR"
+},
+{
+"cmd": "+CSERVINFO",
+"test": "AT+CSERVINFO=?\nERROR",
+"read": "AT+CSERVINFO?\nERROR"
+},
+{
+"cmd": "+CSMTPSAUTH",
+"test": "AT+CSMTPSAUTH=?\nERROR",
+"read": "AT+CSMTPSAUTH?\nERROR"
+},
+{
+"cmd": "+CSMTPSBCH",
+"test": "AT+CSMTPSBCH=?\nERROR",
+"read": "AT+CSMTPSBCH?\nERROR"
+},
+{
+"cmd": "+CSMTPSBODY",
+"test": "AT+CSMTPSBODY=?\nERROR",
+"read": "AT+CSMTPSBODY?\nERROR"
+},
+{
+"cmd": "+CSMTPSCFG",
+"test": "AT+CSMTPSCFG=?\nERROR",
+"read": "AT+CSMTPSCFG?\nERROR"
+},
+{
+"cmd": "+CSMTPSFILE",
+"test": "AT+CSMTPSFILE=?\nERROR",
+"read": "AT+CSMTPSFILE?\nERROR"
+},
+{
+"cmd": "+CSMTPSFROM",
+"test": "AT+CSMTPSFROM=?\nERROR",
+"read": "AT+CSMTPSFROM?\nERROR"
+},
+{
+"cmd": "+CSMTPSRCPT",
+"test": "AT+CSMTPSRCPT=?\nERROR",
+"read": "AT+CSMTPSRCPT?\nERROR"
+},
+{
+"cmd": "+CSMTPSSUB",
+"test": "AT+CSMTPSSUB=?\nERROR",
+"read": "AT+CSMTPSSUB?\nERROR"
+},
+{
+"cmd": "+CSOC",
+"test": "AT+CSOC=?\nERROR",
+"read": "AT+CSOC?\nERROR"
+},
+{
+"cmd": "+CSPN",
+"test": "AT+CSPN=?\nOK",
+"read": "AT+CSPN?\n+CSPN: \"\",0\n\nOK"
+},
+{
+"cmd": "+CSQEXT",
+"test": "AT+CSQEXT=?\nERROR",
+"read": "AT+CSQEXT?\nERROR"
+},
+{
+"cmd": "+CSSLFG",
+"test": "AT+CSSLFG=?\nERROR",
+"read": "AT+CSSLFG?\nERROR"
+},
+{
+"cmd": "+CSVM",
+"test": "AT+CSVM=?\n+CSVM: (0-1),\"(0-9,+)\",(128-255)\n\nOK",
+"read": "AT+CSVM?\n+CSVM: 1,\"<num>\",145\n\n\nOK"
+},
+{
+"cmd": "+CTLIIC",
+"test": "AT+CTLIIC=?\nERROR",
+"read": "AT+CTLIIC?\nERROR"
+},
+{
+"cmd": "+CTXVOL",
+"test": "AT+CTXVOL=?\n+CTXVOL: (0x0000-0xFFFF)\n\nOK",
+"read": "AT+CTXVOL?\nERROR"
+},
+{
+"cmd": "+CTZR",
+"test": "AT+CTZR=?\n+CTZR: (0-1)\n\nOK",
+"read": "AT+CTZR?\n+CTZR: 0\n\nOK"
+},
+{
+"cmd": "+CTZU",
+"test": "AT+CTZU=?\n+CTZU: (0-1)\n\nOK",
+"read": "AT+CTZU?\n+CTZU: 1\n\nOK"
+},
+{
+"cmd": "+CWIICNAU8X",
+"test": "AT+CWIICNAU8X=?\nERROR",
+"read": "AT+CWIICNAU8X?\nERROR"
+},
+{
+"cmd": "+FSPOSITIO",
+"test": "AT+FSPOSITIO=?\nERROR",
+"read": "AT+FSPOSITIO?\nERROR"
+},
+{
+"cmd": "+FSPOSITION",
+"test": "AT+FSPOSITION=?\nERROR",
+"read": "AT+FSPOSITION?\nERROR"
+},
+{
+"cmd": "+FTPCID",
+"test": "AT+FTPCID=?\nERROR",
+"read": "AT+FTPCID?\nERROR"
+},
+{
+"cmd": "+FTPLIST",
+"test": "AT+FTPLIST=?\nERROR",
+"read": "AT+FTPLIST?\nERROR"
+},
+{
+"cmd": "+FTPMDTM",
+"test": "AT+FTPMDTM=?\nERROR",
+"read": "AT+FTPMDTM?\nERROR"
+},
+{
+"cmd": "+FTPMKD",
+"test": "AT+FTPMKD=?\nERROR",
+"read": "AT+FTPMKD?\nERROR"
+},
+{
+"cmd": "+FTPMODE",
+"test": "AT+FTPMODE=?\nERROR",
+"read": "AT+FTPMODE?\nERROR"
+},
+{
+"cmd": "+FTPPORT",
+"test": "AT+FTPPORT=?\nERROR",
+"read": "AT+FTPPORT?\nERROR"
+},
+{
+"cmd": "+FTPPW",
+"test": "AT+FTPPW=?\nERROR",
+"read": "AT+FTPPW?\nERROR"
+},
+{
+"cmd": "+FTPQUIT",
+"test": "AT+FTPQUIT=?\nERROR",
+"read": "AT+FTPQUIT?\nERROR"
+},
+{
+"cmd": "+FTPRENAME",
+"test": "AT+FTPRENAME=?\nERROR",
+"read": "AT+FTPRENAME?\nERROR"
+},
+{
+"cmd": "+FTPREST",
+"test": "AT+FTPREST=?\nERROR",
+"read": "AT+FTPREST?\nERROR"
+},
+{
+"cmd": "+FTPRMD",
+"test": "AT+FTPRMD=?\nERROR",
+"read": "AT+FTPRMD?\nERROR"
+},
+{
+"cmd": "+FTPSERV",
+"test": "AT+FTPSERV=?\nERROR",
+"read": "AT+FTPSERV?\nERROR"
+},
+{
+"cmd": "+FTPSIZE",
+"test": "AT+FTPSIZE=?\nERROR",
+"read": "AT+FTPSIZE?\nERROR"
+},
+{
+"cmd": "+FTPSTATE",
+"test": "AT+FTPSTATE=?\nERROR",
+"read": "AT+FTPSTATE?\nERROR"
+},
+{
+"cmd": "+FTPSTYPE",
+"test": "AT+FTPSTYPE=?\nERROR",
+"read": "AT+FTPSTYPE?\nERROR"
+},
+{
+"cmd": "+FTPTYPE",
+"test": "AT+FTPTYPE=?\nERROR",
+"read": "AT+FTPTYPE?\nERROR"
+},
+{
+"cmd": "+FTPUN",
+"test": "AT+FTPUN=?\nERROR",
+"read": "AT+FTPUN?\nERROR"
+},
+{
+"cmd": "+FTRENAME",
+"test": "AT+FTRENAME=?\nERROR",
+"read": "AT+FTRENAME?\nERROR"
+},
+{
+"cmd": "+HTPSERV",
+"test": "AT+HTPSERV=?\nERROR",
+"read": "AT+HTPSERV?\nERROR"
+},
+{
+"cmd": "+HWVER",
+"test": "AT+HWVER=?\nERROR",
+"read": "AT+HWVER?\nERROR"
+},
+{
+"cmd": "+MDECR",
+"test": "AT+MDECR=?\nERROR",
+"read": "AT+MDECR?\nERROR"
+},
+{
+"cmd": "+MEDCR",
+"test": "AT+MEDCR=?\nERROR",
+"read": "AT+MEDCR?\nERROR"
+},
+{
+"cmd": "+NBSC",
+"test": "AT+NBSC=?\nERROR",
+"read": "AT+NBSC?\nERROR"
+},
+{
+"cmd": "+SHAHEAD",
+"test": "AT+SHAHEAD=?\nERROR",
+"read": "AT+SHAHEAD?\nERROR"
+},
+{
+"cmd": "+SHBOD",
+"test": "AT+SHBOD=?\nERROR",
+"read": "AT+SHBOD?\nERROR"
+},
+{
+"cmd": "+SHBODEXT",
+"test": "AT+SHBODEXT=?\nERROR",
+"read": "AT+SHBODEXT?\nERROR"
+},
+{
+"cmd": "+SHCHEAD",
+"test": "AT+SHCHEAD=?\nERROR",
+"read": "AT+SHCHEAD?\nERROR"
+},
+{
+"cmd": "+SHCONF",
+"test": "AT+SHCONF=?\nERROR",
+"read": "AT+SHCONF?\nERROR"
+},
+{
+"cmd": "+SHCPARA",
+"test": "AT+SHCPARA=?\nERROR",
+"read": "AT+SHCPARA?\nERROR"
+},
+{
+"cmd": "+SHPARA",
+"test": "AT+SHPARA=?\nERROR",
+"read": "AT+SHPARA?\nERROR"
+},
+{
+"cmd": "+SHREAD",
+"test": "AT+SHREAD=?\nERROR",
+"read": "AT+SHREAD?\nERROR"
+},
+{
+"cmd": "+SHSTATE",
+"test": "AT+SHSTATE=?\nERROR",
+"read": "AT+SHSTATE?\nERROR"
+},
+{
+"cmd": "+SIGNS",
+"test": "AT+SIGNS=?\nERROR",
+"read": "AT+SIGNS?\nERROR"
+},
+{
+"cmd": "+SIMTONE",
+"test": "AT+SIMTONE=?\nERROR",
+"read": "AT+SIMTONE?\nERROR"
+},
+{
+"cmd": "+SJDCFG",
+"test": "AT+SJDCFG=?\nERROR",
+"read": "AT+SJDCFG?\nERROR"
+},
+{
+"cmd": "+SLEDS",
+"test": "AT+SLEDS=?\nERROR",
+"read": "AT+SLEDS?\nERROR"
+},
+{
+"cmd": "+SNPING4",
+"test": "AT+SNPING4=?\nERROR",
+"read": "AT+SNPING4?\nERROR"
+},
+{
+"cmd": "+SNPING6",
+"test": "AT+SNPING6=?\nERROR",
+"read": "AT+SNPING6?\nERROR"
+},
+{
+"cmd": "+STENV",
+"test": "AT+STENV=?\nOK",
+"read": "AT+STENV?\nERROR"
+},
+{
+"cmd": "+STGI",
+"test": "AT+STGI=?\nOK",
+"read": "AT+STGI?\nERROR"
+},
+{
+"cmd": "+STGR",
+"test": "AT+STGR=?\nOK",
+"read": "AT+STGR?\nERROR"
+},
+{
+"cmd": "+STIN",
+"test": "AT+STIN=?\nOK",
+"read": "AT+STIN?\nERROR"
+},
+{
+"cmd": "+STKFMT",
+"test": "AT+STKFMT=?\nERROR",
+"read": "AT+STKFMT?\n+STKFMT: 0\n\nOK"
+},
+{
+"cmd": "+STSM",
+"test": "AT+STSM=?\nOK",
+"read": "AT+STSM?\nERROR"
+},
+{
+"cmd": "+STTONE",
+"test": "AT+STTONE=?\nERROR",
+"read": "AT+STTONE?\nERROR"
+},
+{
+"cmd": "+UNPAIR",
+"test": "AT+UNPAIR=?\nERROR",
+"read": "AT+UNPAIR?\nERROR"
+},
+{
+"cmd": "+USBNETIP",
+"test": "AT+USBNETIP=?\nERROR",
+"read": "AT+USBNETIP?\nERROR"
+},
+{
+"cmd": "+USBNETMAC",
+"test": "AT+USBNETMAC=?\nERROR",
+"read": "AT+USBNETMAC?\nERROR"
+},
+{
+"cmd": "+VMUE",
+"test": "AT+VMUE=?\nERROR",
+"read": "AT+VMUE?\nERROR"
+},
+{
+"cmd": "+VTD",
+"test": "AT+VTD=?\n+VTD: (0-255)\n\nOK",
+"read": "AT+VTD?\n+VTD: 0\n\nOK"
+},
+{
+"cmd": "+VTS",
+"test": "AT+VTS=?\n+VTS: (0-9,*,#,A,B,C,D)\n\nOK",
+"read": "AT+VTS?\nERROR"
+}
+]

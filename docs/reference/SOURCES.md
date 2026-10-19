@@ -17,11 +17,23 @@ Downloaded 2026-10-17. Third-party mirrors are used where SIMCom's own download 
 | `LilyGO_T-Deck_utilities.h` | LilyGO pin definitions (MIT) | https://github.com/Xinyuan-LilyGO/T-Deck/blob/master/examples/UnitTest/utilities.h |
 | `ESP32-S3_datasheet.pdf` | Espressif datasheet (VIH 0.75 x VDD) | https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf |
 
+| `SIM7500_SIM7600_SIM7800_Series_SMS_Application_Note_V2.00.pdf` | SIMCom SMS application note V2.00 (2020, 16 pp): storage, CMGL/CMGR/CMGD/CMGW/CMGS/CMSS flow, CNMI | https://files.waveshare.com/upload/f/f0/SIM7500_SIM7600_SIM7800_Series_SMS_Application_Note_V2.00.pdf |
+| `SIM7X00_Series_SMS_Application_Note_V1.00.pdf` | Older SMS note (2016), same flow | https://files.waveshare.com/upload/0/06/SIM7X00_Series_SMS_Application_Note_V1.00.pdf |
+| `SIM7X00_Series_SAT_Application_Note_V1.00.pdf` | SIM Application Toolkit (`+STIN`, `+STGI`, `+STGR`, `+STKFMT`, `+STSM`, `+STENV`) | https://files.waveshare.com/upload/e/e6/SIM7X00_Series_SAT_Application_Note_V1.00.pdf |
+| `SIM7500_SIM7600_Series_FTPS_Application_Note_V2.00.pdf` | FTP(S) note V2.00 (the `+CFTPS...` family) | https://files.waveshare.com/upload/6/66/SIM7500_SIM7600_Series_FTP%28S%29_Application_Note_V2.00.pdf |
+| `SIM7500_SIM7600_SIM7800_Series_MQTT_Application_Note_V2.00.pdf` | MQTT(S) note V2.00 (`+CMQTT...`) | https://files.waveshare.com/upload/5/50/SIM7500_SIM7600_SIM7800_Series_MQTT_Application_Note_V2.00.pdf |
+| `SIM7500_SIM7600_Series_MQTT_ATC_V1.01.pdf` | MQTT AT command detail (40 pp) | https://files.waveshare.com/upload/6/65/SIM7500_SIM7600_Series_MQTT_ATC_V1.01.pdf |
+| `SIM7500_SIM7600_SIM7800_Series_SSL_Application_Note_V2.00.pdf` | SSL/TLS note V2.00 (`+CSSLCFG`, `+CCERTDOWN`) | https://files.waveshare.com/upload/4/41/SIM7500_SIM7600_SIM7800_Series_SSL_Application_Note_V2.00.pdf |
+| `SIM7500_SIM7600_Series_Compatibility_With_SIM800_HTTP_ATC_V1.00.pdf` | The SIM800-style `+HTTP...` commands (`+HTTPINIT`, `+HTTPPARA`, `+HTTPACTION`) | https://files.waveshare.com/upload/9/9a/SIM7500_SIM7600_Series_Compatibility_With_SIM800_HTTP_ATC_V1.00.pdf |
+| `SIM7100_SIM7500_SIM7600_Series_USB_AUDIO_Application_Note_V1.03.pdf` | USB audio (`+CPCMREG`, `+CPCMFRM`) | https://files.waveshare.com/upload/8/8e/SIM7100_SIM7500_SIM7600_Series_USB_AUDIO_Application_Note_V1.03.pdf |
+
+Downloaded 2026-10-18 (second research pass). The Waveshare `.net` mirror of the SMS V2.00 note returned an HTML page; the `files.waveshare.com` URL above is the working one.
+
 ## Not obtained
 
-- SIMCom pages list newer notes (SMS V3.00, HTTP(S) V3.00, FTP(S) V3.00, MQTT(S) V3.00, SSL V2.00, TTS V3.00, USB audio V3.00, GNSS V3.00, UART V2.00, TCP/IP V3.00) but their download buttons are JavaScript placeholders, so no direct links were found (checked 2026-10-18 on https://cn.simcom.com/product/SIM7600X.html). Download from https://www.simcom.com/download.html in a browser.
+- SIMCom pages list newer notes (SMS V3.00, HTTP(S) V3.00, FTP(S) V3.00, MQTT(S) V3.00, TTS V3.00, USB audio V3.00, GNSS V3.00, UART V2.00, TCP/IP V3.00) but their download buttons are JavaScript placeholders, so no direct links were found (checked 2026-10-18 on https://cn.simcom.com/product/SIM7600X.html). Download from https://www.simcom.com/download.html in a browser.
 - A7600 audio application note (Waveshare mirror URL returned an HTML error page). It is for a sibling module anyway.
 - A newer AT manual than V3.00: searches found none (V3.00 is listed as current).
 
-- SIMCom SMS and USB-audio application notes: Waveshare file URLs I tried returned errors; SIMCom's download page requires a browser. Fetch manually from https://www.simcom.com/product/SIM7600X-H.html if needed.
+- Still missing: the HTTP(S) V3.00 and TTS V3.00 notes and a newer USB audio note. No Waveshare copy was found. Fetch from https://www.simcom.com/product/SIM7600X-H.html in a browser if needed.
 - SIMCom copies on promelec.ru were blocked (DDoS-Guard).

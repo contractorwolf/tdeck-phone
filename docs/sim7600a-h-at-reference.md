@@ -46,7 +46,7 @@ Ranked by how much they affect firmware.
 
 1. **`AT+CLAC` is incomplete and the module has far more commands than documented.** It lists 723 names, 426 of which are not in the manual's text. It also **omits** commands that clearly work (`+CPIN`, `+CMGS`, `+CMGR`, `+CGMI`, `+COPS` and others), so it cannot be used as a full inventory. Sections 14 and 15.
 2. **SMS storage is bigger in module memory.** `AT+CPMS="ME","ME","ME"` gives **255 slots**, against 30 on the SIM. The `"MT"` storage is listed as supported by `AT+CPMS=?` but is **rejected** with `ERROR`.
-3. **`ATH` is configured to be ignored** (`AT+CVHU?` = 1, per the manual: "ATH ignored but OK given"). Use `AT+CHUP` to hang up. The module's `ATH` behaviour itself was not tested. Documented plus observed setting.
+3. **`ATH` is configured to be ignored** (`AT+CVHU?` = 1, per the manual: "ATH ignored but OK given"). Use `AT+CHUP` to hang up. **Observed** in section 20.6: `ATH` returns `OK` but the call stays up.
 4. **VoLTE is enabled** (`at+voltesetting?` = 1) and the module has an active `ims` PDP context. `at+voltesetting` is not in the SIMCom manual; it is documented only on the Waveshare wiki. Voice and SMS worked on this setup.
 5. **Every command takes about 0.2 s before the first reply byte and about 0.41 s to finish** at 9600 baud, even for `AT`. Plan for a ceiling of about 2 to 3 simple commands per second.
 6. **Error format depends on `AT+CMEE`.** `0` gives a bare `ERROR`, `1` gives numeric codes (`+CMS ERROR: 321`), `2` gives text (`+CMS ERROR: Invalid memory index`). Malformed arguments (`AT+CMGR=abc`) give a bare `ERROR` in every mode.
@@ -63,10 +63,11 @@ Ranked by how much they affect firmware.
 | SIMCom SIM7X00 UART Application Note V1.00 (2016) | UART, flow control, DTR sleep, RI behaviour, CMUX. Older than this module (written for SIM7600C/CE); treat as general guidance |
 | SIMCom GNSS Application Note V2.00 (2020) | GNSS background |
 | SIMCom TCP/IP Application Note V2.00 | IP command names |
+| SIMCom SMS notes V2.00 and V1.00, SAT V1.00, FTP(S) V2.00, MQTT(S) V2.00 and ATC V1.01, SSL V2.00, SIM800 HTTP compatibility V1.00, USB audio V1.03 (second research pass, section 20) | SMS flow, SIM toolkit, and the command names of the optional stacks |
 | Waveshare wiki for the SIM7600X HAT | HAT-specific commands, audio tuning, VoLTE enable, FAQ fixes |
 | The module itself | Everything marked Observed |
 
-**Could not obtain** (SIMCom lists them but their download buttons are JavaScript placeholders with no direct URL): the SMS V3.00, HTTP(S) V3.00, FTP(S) V3.00, MQTT(S) V3.00, SSL V2.00, TTS V3.00, USB audio V3.00, GNSS V3.00, UART V2.00 and TCP/IP V3.00 application notes. A search found no AT manual newer than V3.00. See [reference/SOURCES.md](reference/SOURCES.md). The hidden HTTPS, FTP and SMTP commands in section 15 are therefore undocumented here beyond the shapes the module reports.
+**Could not obtain** (SIMCom lists them but their download buttons are JavaScript placeholders with no direct URL): the V3.00 notes for HTTP(S), TTS, USB audio, GNSS, SMS and FTP(S), UART V2.00 and TCP/IP V3.00. Older Waveshare-hosted copies of SMS, FTP(S), MQTT(S), SSL and USB audio were found in the second pass (section 20); an HTTP(S) or TTS note was not. Repeated searches found no AT manual newer than V3.00. See [reference/SOURCES.md](reference/SOURCES.md). The hidden HTTPS, FTP and SMTP commands in section 15 are therefore undocumented here beyond the shapes the module reports.
 
 ## 5. Serial interface behaviour
 
@@ -241,7 +242,7 @@ Worked on a correctly provisioned line: `AT+CMGF=1`, `AT+CMGS="+1<number>"`, wai
 | `NO CARRIER` | Printed when the far end ended the call (observed) |
 | `AT+CHUP` | Observed to end a call (`VOICE CALL: END: <time>` then `OK`); with no call it returns just `OK`. Documented: may print several `VOICE CALL: END` lines and may take up to 120 s |
 | `ATH` | **Not tested.** `AT+CVHU?` returns `1`, which the manual says makes `ATH` and DTR-drop ignored (with `OK` still returned). Use `AT+CHUP` |
-| `ATA` | Documented; not tested (incoming calls not tested) |
+| `ATA` | Observed: answers an incoming call in about 0.2 s (section 20.6) |
 | `AT+CLIP=1` | `OK`; `AT+CLIP=?` is `(0-1)`. **`AT+CLIP?` returns `ERROR`** on this unit. The manual lists it as `NO_SAVE`, so send it after every boot |
 | `AT+CRC?` | `0` (extended RING format off) |
 | `AT+CVHU?` | `1` |
@@ -256,7 +257,7 @@ Worked on a correctly provisioned line: `AT+CMGF=1`, `AT+CMGS="+1<number>"`, wai
 
 ### DTMF and tones
 
-- `AT+VTS=<char>[,<duration>]` sends a tone during an active call; `AT+VTS=?` lists `(0-9,*,#,A,B,C,D)`. A quoted comma-separated string is allowed up to 29 characters (documented). **Not tried on a live call.**
+- `AT+VTS=<char>[,<duration>]` sends a tone during an active call; `AT+VTS=?` lists `(0-9,*,#,A,B,C,D)`. A quoted comma-separated string is allowed up to 29 characters (documented). **Tried on live calls**: accepted with `OK` and the far-end menu appeared to react (section 20.9).
 - `AT+VTD?` returns `0` (default tone duration); `=?` is `(0-255)` in tenths of a second.
 - Undocumented: `AT+DTMFCTL?` returns `1,1`; `AT+VOLTEDTMFCFG?` returns `200,4000`; `AT+CPTONETEST=?` shows `(1-100)(0-9,A-F,*,#)(50-100)`.
 
@@ -430,6 +431,7 @@ Commands the module lists or answers that the manual V3.00 does not document. **
 | `AT+CPBS` | `"ON"` for `AT+CNUM` | Yes, restored to `"SM"` |
 | `AT+CSDH` | `1` for header tests | Yes, `0` |
 | `AT+CLIP` | `1` | Left on (not saved across reboot) |
+| `AT+CRC` | `1` (incoming call test) | Reset to `0` by the power cycle in 20.10 |
 | `AT+CLVL` | `3`, then module default `4` was observed | Reads `4` |
 | Echo (`ATE0`/`ATE1`) | toggled | Yes, echo on |
 
@@ -458,7 +460,7 @@ All other probing used `=?` and `?` forms or execute forms of read-only informat
 These feed [at-library-plan.md](at-library-plan.md).
 
 1. Use `AT+CHUP` for hang-up; treat `ATH` as unreliable.
-2. Re-send every volatile setting at startup: `ATE0`, `AT+CMGF=1`, `AT+CSCS`, `AT+CLIP=1`, `AT+CNMI=2,1`, `AT+CMEE=2`, `AT+CSDVC`.
+2. Re-send the volatile settings at startup: `ATE0`, `AT+CMGF=1`, `AT+CSCS`, `AT+CSMP`, `AT+CLIP=1`, `AT+CRC=1`, `AT+CSDVC`, `AT+CLVL`. `AT+CPMS`, `AT+CNMI` and `AT+CTZU` are kept across power loss (section 20.10). `AT+CMEE` boots as `2`.
 3. Do not read back `AT+CLIP?`; track the state in software.
 4. Budget about 0.4 s per command; a status refresh of five commands costs 2 s of serial time.
 5. Parse by line, with a state machine. `+CMGL` and `+CMGR` bodies sit on the next line, headers carry quarter-hour time zones, and senders may be short codes.
@@ -470,14 +472,176 @@ These feed [at-library-plan.md](at-library-plan.md).
 
 ## 19. Still to test
 
-- Incoming calls: `RING`, `+CLIP`, `ATA`, `+CRING` with `AT+CRC=1`.
-- `ATH` against `AT+CHUP`, with a call in progress.
-- DTMF with `AT+VTS`, `AT+CLCC=1` auto-reporting, and call waiting.
+Section 20.5 lists what the second pass left untested; the list below is the original one.
+
+- Done in section 20.6: incoming calls (`+CRING`, `+CLIP`, `ATA`) and `ATH` against `AT+CHUP`.
+- DTMF is covered in 20.9 (probably works). Still to test: `AT+CLCC=1` auto-reporting and call waiting.
 - SMS: full-storage behaviour, `ME` storage persistence, receiving into `ME`, `AT+CMGD` flags, characters that differ between `IRA` and `GSM`, `UCS2`, long messages.
 - Data: the Ting plan's APN and allowance, then `AT+CHTTPS…` and the manual's HTTP(S) commands. Raise the baud rate first.
 - `AT+CLCC=1`, `AT+CEREG=1` and `AT+CREG=1` URC formats.
 - GNSS with an antenna and a sky view.
 - Power saving (`AT+CPSMS`, `AT+CSCLK`, DTR wake) and the RI pin timing.
-- Whether `ME` storage, `AT+CMEE` and `AT+CSMP` survive a power cycle (isolate each).
+- Done in 20.10: which settings survive a power cycle.
 - The undocumented IMS commands (what the numbers in `+IMSREGDB` and `+IMSSIPCFG` mean).
 - The newer SIMCom application notes (SMS, HTTP(S), FTP(S), MQTT(S), TTS, USB audio) once downloaded in a browser.
+
+## 20. Second research pass: web search, extra names and value decoding
+
+A follow-up pass looked for more commands on the web, probed the new names read-only, and decoded values the first pass left unexplained. Raw results for the names probed are in [reference/at-probe/probe2_extra_names.sanitized.json](reference/at-probe/probe2_extra_names.sanitized.json).
+
+### 20.1 What the web search found
+
+- No public list of hidden SIM7600 commands exists. Searches for the `+IMS...`, `+CHTTPS...`, `+CPATEMP` and `+VOLTESETTING` names found nothing beyond the Waveshare wiki's VoLTE entry. The hidden-command surface in section 15 stays documented only by what the module itself reports.
+- A 2026 vulnerability entry (BDU:2026-00054) says a SIM7600G modem on firmware `LE20B03SIM7600M21-A` has an undocumented AT command that runs system commands as root. It names no command. On this unit the likely candidates are the commands `AT+CLAC` lists such as `+SHCMD`, `+CSHELL` and `+CUSBADB`, which I never sent. Do not expose raw AT passthrough on anything networked.
+- SIMCom's older manuals (V1.01 to V1.12) are on mirrors; they add nothing for this firmware beyond what V3.00 covers.
+- Waveshare-hosted SIMCom notes that were obtainable are now in `reference/` (see [SOURCES.md](reference/SOURCES.md)): SMS V2.00 and V1.00, SAT V1.00, FTP(S) V2.00, MQTT(S) V2.00 and ATC V1.01, SSL V2.00, SIM800 HTTP compatibility V1.00 and USB audio V1.03.
+- The names in those notes, plus 318 names from the SIM7000 and A76xx manuals and the older SIM7600 V1.12 manual that are not in this project's index, gave 212 candidates after removing anything that opens, sends, connects, writes, deletes, powers or switches. Each got only `AT<cmd>=?` and `AT<cmd>?`. 40 gave a real answer, and most of those were standard 3GPP or SIMCom commands that the first pass had not tried (the table below). The other 172 answered `ERROR` to both forms, which does not prove they are absent (section 14).
+
+### 20.2 Newly confirmed commands
+
+| Command | Observed | Meaning / use |
+|---|---|---|
+| `AT+CCID` | `+CCID: <iccid>` | SIM card ID (same as `+CICCID`) |
+| `AT+CGMM` / `AT+CGMR` | `SIMCOM_SIM7600A-H` / `+CGMR: LE11B03SIM7600A-H` | Model and firmware, execute form |
+| `AT+CSUB` | `B03V07` and `MDM9x07_A-H_22_V1.10_190221` | Firmware build and baseband version |
+| `AT+SIMCOMATI` | manufacturer, model, revision, build, `SVN: 03`, IMEI, `+GCAP: +CGSM`, `DeviceInfo: 173,170` | One-shot identity block |
+| `AT+CBC` | `+CBC: 3.882V` | Module supply voltage (the HAT's rail, not a battery gauge) |
+| `AT+CPATEMP` | `+CPATEMP: 28` | Power-amplifier temperature in degrees C (28 at idle on the bench) |
+| `AT+CVAUXV?` | `+CVAUXV: 2850` | Auxiliary supply setting in millivolts |
+| `AT+CCLK?` | `+CCLK: "yy/mm/dd,hh:mm:ss-zz"` | Network time, zone in quarter hours |
+| `AT+CIND?` / `=?` | `+CIND: 0,3,1,0,0,0,1,0` | Indicators in order: `battchg` 0-5, `signal` 0-5, `service` 0-1, `call` 0-1, `roam` 0-1, `smsfull` 0-1, `GPRS coverage` 0-1, `callsetup` 0-3. Read: no battery, signal 3 of 5, in service, no call, home, SMS not full, packet coverage, no call setup |
+| `AT+CMER?` | `0,0,0,0,0` | Indicator event reporting is off; set it for `+CIEV` URCs on change |
+| `AT+CESQ` | `+CESQ: 99,99,255,255,4,24` | Fields: rxlev, ber, rscp, ecno (all 99 or 255 on LTE), RSRQ index 4, RSRP index 24. Index 24 is -116 dBm and matches `+VZWRSRP` (-116.2) |
+| `AT+CSQFMT?` | `1` | Format selector for `+CSQ` (module accepts 0-1) |
+| `AT+CEER` | `+CEER: ESM sync up with network` | Last extended error, readable without a call |
+| `AT+CGPADDR=<cid>` | cid 1 `0.0.0.0`, cid 2 an IPv6 address | PDP address per context; 1-3 supported |
+| `AT+CGCONTRDP=2` | `ims` APN, IPv6 address, gateways and DNS (P-CSCF) addresses | IMS bearer parameters (identifiers not recorded) |
+| `AT+CGEQREQ?` / `AT+CGEQMIN?` | `2,2,0,0,0,0,2,0,"0E0","0E0",3,0,1,0,1` / empty | 3G QoS; irrelevant on LTE |
+| `AT+CGEREP?` | `0,0` | Packet event reporting off |
+| `AT+CGACT?` | `1,0` `2,1` `3,0` | Only the IMS context is active; the data context 1 is not (no data session) |
+| `AT+CMUX?` | `0,0,5,118,0,0,600` | 27.010 multiplexer defaults; `=?` `(0),(0),(1-8),(1-1500),(0),(0),(2-1000)`. A way to get several logical channels over one UART, untested |
+| `AT+CSVM?` | enabled, a voicemail number, 145 | Carrier-provisioned voicemail number (not recorded here). `AT+CPBR=1,3` shows the same entry as `"Voice Mail"` |
+| `AT+CPBR=1,3` | `411`, `611` and a voicemail entry | The SIM's phonebook comes with three carrier entries; `=?` `(1-100),40,14` (100 slots, 40-char numbers, 14-char names) |
+| `AT+CSTA?` | `129` | Default address type (unknown format) |
+| `AT+CTZU?` / `AT+CTZR?` | `1` / `0` | Auto time-zone update on; zone change reporting off |
+| `AT+CSCLK?` | `0` | Slow-clock sleep off (`=?` `(0-1)`) |
+| `AT+CCWA?` | `0` | Call waiting off in the module's setting (`=?` `(0-1)`) |
+| `AT+CRC?` | `0` | Extended `+CRING` format off; set 1 to see the call type |
+| `AT+CSALPHA?` | `0` | Alpha-string handling for phonebook (0-1) |
+| `AT+VTS=?` | `(0-9,*,#,A,B,C,D)` | DTMF tone characters; `AT+VTD?` is `0` (duration setting, `=?` `(0-255)`) |
+| `AT+CHLD=?` | `(0,1,1x,2,2x,3,4)` | Hold, swap, conference and transfer actions are supported by the module (untested) |
+| `AT+CTXVOL=?` / `AT+CRXVOL=?` | `(0x0000-0xFFFF)` | Transmit and receive digital gain; read forms give `ERROR` |
+| `AT+CNSN=?` / `AT+CFNSMOD=?` | `(0x0000-0x7FFF)` / `(0x00FF,0x0073,0x00F3,0x01FF)` | Hex mask settings; meaning unknown |
+
+### 20.3 Values decoded
+
+| Item | Observed | Decoded |
+|---|---|---|
+| `AT+CNMP?` | `2`. `=?` `2,9,10,13,14,19,22,38,39,48,54,59,60,63,67` | Manual V3.00: 2 automatic, 13 GSM, 14 WCDMA, 38 LTE only, 39 GSM+WCDMA+LTE, 48 any but LTE, 54 WCDMA+LTE, 19 GSM+WCDMA, 9 CDMA, 10 EVDO, 22 CDMA+EVDO, 59 TDS-CDMA, 60 GSM+TDSCDMA, 63 GSM+WCDMA+TDSCDMA, 67 CDMA+EVDO+GSM+WCDMA+TDSCDMA. The value persists across resets, so a wrong write is permanent. Keep 2 |
+| `AT+CNSMOD?` | `0,8` | `<n>=0` auto-report off, `<stat>` 8 is LTE (manual table: 0 none, 1 GSM, 2 GPRS, 3 EGPRS, 4 WCDMA, 5-7 HSPA types, 8 LTE) |
+| `AT+PSRAT?` | `LTE FDD` | Packet radio access technology now in use |
+| `AT+CPSI?` | `LTE,Online,310-260,<tac>,<cell>,<pci>,EUTRAN-BAND2,<earfcn>,4,4,-171,-1155,-797,8` | Field order from the manual: system mode, state, MCC-MNC, TAC, serving cell ID, PCI, band, EARFCN, DL bandwidth index, UL bandwidth index, RSRQ, RSRP, RSSI, RSSNR. On this firmware RSRQ, RSRP and RSSI are in **tenths** of dB/dBm (-17.1 dB, -115.5 dBm, -79.7 dBm). The manual's examples are GSM and WCDMA only, so the scaling is inferred by comparing with `+VZWRSRP` and `+CSNINFO` |
+| `AT+CSNINFO?` | `SCELL, LTE,310-260,<tac>,<cell>,<pci>,EUTRAN-BAND2,<earfcn>,4,4,-18,-117,-80,8` then two `NCELL` lines | The same data in whole units, plus neighbour cells. Easier to parse than `+CPSI` |
+| `AT+VZWRSRP?` / `AT+VZWRSRQ?` | `<pci>,<earfcn>,-116.20,...` / `...,-18.40,...` | Serving and neighbour RSRP and RSRQ as decimals, one line for both cells |
+| `AT+WS46?` | `25`. `=?` `(12,22,25,28,29)` | 3GPP 27.007 meanings: 12 GSM, 22 UTRAN, 25 all 3GPP systems, 28 E-UTRAN only, 29 GSM+UTRAN. Not verified against SIMCom text |
+| `AT+CEMODE?` | `1`. `=?` `(0-3)` | 3GPP 27.007 UE mode of operation: 0 PS mode 2, 1 CS/PS mode 1 (voice-centric), 2 CS/PS mode 2, 3 PS mode 1. 1 matches a phone that uses VoLTE. Not changed |
+| `AT+NETMODE?` | `2` | Unknown. Not in V3.00 |
+| `AT+CVMOD?` | `3`, `=?` `(0-3)` | Unknown. By the pattern on other SIMCom modules it is the voice mode preference (CS vs IMS), with 3 likely meaning IMS only. Not verified and not changed |
+| `AT+CGSMS?` | `1`, `=?` `(0-3)` | 3GPP: which service carries MO SMS (0 PS, 1 CS, 2 PS preferred, 3 CS preferred). 1 is CS, yet SMS works on this LTE-only setup, so SMS is carried over IMS irrespective of this setting. Not changed |
+| `AT+CSMS?` | `0,1,1,1` | Phase 2+ service 0; mobile-terminated, mobile-originated and broadcast all supported |
+| `AT+CMVP?` | `255` | Message validity period setting; `=?` `(0-255)`. Meaning of 255 not verified |
+| `AT+CSCB?` | `0,"",""` | Cell broadcast on (mode 0) with empty ID lists; `=?` `(0-1)` |
+| `AT+CPMS?` | `"SM",2,30` (all three) | Two messages are stored on the SIM at the time of reading |
+| `AT+CPSMS?` | `0,,,"00011000","00001010"` | PSM disabled, with the default TAU and active-time bit strings |
+| `AT+CPLS?` | `0` with `=?` `0,1,2` | Preferred operator list selection (0 user, 1 operator, 2 HPLMN). `AT+CPOL?` answers `+CME ERROR: operation not allowed`, so the SIM has no list |
+| `AT+CLCK="SC",2` | `+CLCK: 0` | Query form: SIM PIN lock is off |
+| `AT^SYSCONFIG?` | `2,0,1,2` | Huawei-style fields mode, acquisition order, roaming, service domain. Community sources give 2 automatic, 0 automatic order, 1 roaming allowed, 2 circuit plus packet. Probably a compatibility stub; do not write to it |
+| `AT^CARDMODE?` | `2` | Huawei convention: 0 no card, 1 SIM, 2 USIM |
+| `AT^MODE?`, `AT^DSCI?`, `AT^CURCREAD?`, `AT*CNTI?` | `0`, `0`, `0,0`, `0,NONE` | Compatibility stubs. `AT*CNTI` `=?` is `(0-2)` and returns the technology name when queried with 0 on a registered network, but here it returned `NONE` |
+| `AT+IMSREGDB?` | `272,17,1283,136,64,103,17,1280,136,64,512,17,0,0,0` | Unknown format. Looks like a table of registration values. Do not write it |
+| `AT+IMSSMSCFG?` | `1,0` | Unknown. The first field is probably SMS-over-IMS enabled. Leave as is, since SMS works |
+| `AT+IMSSIPCFG?` | `2000,16000,32000` | Unknown. Three numbers that look like SIP timers in milliseconds |
+| `AT+DTMFCTL?` / `AT+VOLTEDTMFCFG?` | `1,1` / `200,4000` | DTMF handling flags and VoLTE DTMF timing (ranges `(1-400),(1-9999)`) |
+| `AT+CHSN?` | `0,0,0,0` | Unknown. `=?` `(0-2,4,7),(0),(0),(0)` |
+| `AT+STKFMT?` | `0` | SIM toolkit format is "decoded". `AT+STIN?`, `AT+STGI?`, `AT+STSM` answer `ERROR` until the SIM issues a proactive command |
+| `AT+CCFC=0,2` and `AT+CCWA=1,2` | `ERROR` | The network-side supplementary-service queries (call forwarding and call waiting status) do not work through this module setup; likely they need XCAP over IMS, which the module does not provide |
+
+### 20.4 What the notes add
+
+- **SMS notes (V1.00, V2.00)** state that the `AT+CPMS` and `AT+CNMI` values "will be saved after the module restarts". That is not verified here (no restart). Re-send them at start-up anyway.
+- They add commands the module accepts the read forms of: `AT+CMGMT` (change message status), `AT+CMGRD` (read and delete in one), `AT+CMSSEX` (send multiple from storage), `AT+CNMA` (acknowledge a new message, needed when `CNMI` mt is 2 with `+CSMS` 1). Their `=?` forms answer `OK` and nothing else. `AT+CMGP` is CDMA only and answers `ERROR`.
+- They state SMS and call AT commands "conflict" and should not be interleaved. Observed behaviour agrees: a pending `AT+CMGS` blocks `ATD`.
+- **SAT note:** the SIM toolkit commands are `AT+STIN`, `AT+STGI`, `AT+STGR`, `AT+STKFMT` and `AT+STSM` and `AT+STENV` (PDU format only). Menus, text and input arrive as UCS2 hex. The SIM would have to offer a toolkit menu; none was exercised.
+- **FTP(S), MQTT(S), SSL and HTTP notes** define the command families `AT+CFTPS...`, `AT+CMQTT...` (the MQTT ATC V1.01 document spells one command `+CMQTTCONNNECT` with three N, a typo in that document), `AT+CSSLCFG` and the SIM800-compatible `AT+HTTPINIT`, `AT+HTTPPARA`, `AT+HTTPACTION`, `AT+HTTPREAD`, `AT+HTTPHEAD`. All of those names are in `AT+CLAC`, so the module has them, but no session was opened because nothing here has a data plan to test against. Treat their behaviour as documented only.
+- **USB audio note:** `AT+CPCMREG` and `AT+CPCMFRM` (both read `0` and `0`, `=?` `(0-1)` for the latter) switch call audio to the module's USB or PCM path. Not relevant to the UART-and-headset setup.
+
+### 20.5 What was not done
+
+- Nothing destructive was sent. The 212 candidate names were screened with the same deny rule as the first pass, and only `=?` and `?` were issued to them, plus the execute forms of pure read commands listed in 20.2 and the two supplementary-service queries.
+- Settings were not changed in the probing. The incoming-call test in 20.6 set `AT+CRC=1` (volatile).
+- Needs a phone and a decision from the user, so not run (DTMF was later done, 20.9): a data session (the Ting APN is not known), a power cycle to check whether `AT+CPMS`, `AT+CNMI` and `AT+CMEE` persist, and the SIM toolkit menu.
+
+### 20.6 Incoming calls and ATH (tested)
+
+Two calls were placed to the Ting line from a cell phone with `AT+CLIP=1` and `AT+CRC=1` set. **Observed:**
+
+| Step | Result |
+|---|---|
+| Ring | With `AT+CRC=1` each ring arrives as `+CRING: VOICE` (no plain `RING`), followed immediately by `+CLIP: "<number>",145,,,,0`. A second ring and a second `+CLIP` came about 6 s later |
+| Caller ID | `+CLIP` carries the number in plain form with type 145 (international). It arrived on the first ring, so the library can show the caller before answering |
+| `ATA` | Echoed, then `VOICE CALL: BEGIN` and `OK` within about 0.2 s. The call was connected |
+| `AT+CLCC` while active | `+CLCC: 3,1,0,0,0,"<number>",145`: index 3, direction 1 (incoming), state 0 (active), voice, not multiparty. The index was 3, not 1, on this unit |
+| `AT+CHUP` | Ended the call at once: `VOICE CALL: END: 000010` (duration `hhmmss`) then `OK`. After it `AT+CLCC` returns just `OK` |
+| `ATH` | Replied `OK` after about 3 s but **did not hang up**: `AT+CLCC` afterwards still showed state 0. The call was only ended by the later `AT+CHUP` (total 16 s). This confirms `AT+CVHU` = 1 behaviour: `ATH` is acknowledged and ignored |
+| Caller hangs up | Not tested in this pass; the first call was ended by the module. Expect `NO CARRIER` and `VOICE CALL: END` |
+
+Library consequences: answer with `ATA`, end with `AT+CHUP` only, treat `+CLIP` as the incoming-call event, and expect a short pause before the `OK` for `ATH` if anyone sends it. Parse the `VOICE CALL: END: hhmmss` line for call duration.
+
+### 20.7 DTMF (first attempt, no way to check)
+
+During an answered incoming call from a cell phone, `AT+VTS` was sent with `AT+VTD?` at `0`:
+
+| Command | Result |
+|---|---|
+| `AT+VTS=1,10` and `AT+VTS=2,10` | `OK`, after 1.03 s and 1.22 s, so the command blocks for the tone length (duration is in tenths of a second) |
+| `AT+VTS="3,5,7,9"` and `AT+VTS="*,#"` | `OK` in 0.21 s each, i.e. immediately; the string form does not wait for the tones |
+| `AT+VTS=Z` | `ERROR` |
+
+The person on the far-end cell phone **heard no tones** for any of them. That does not show the module failed: a phone normally does not play received DTMF to its user, and on a VoLTE call DTMF may be carried as signalling events instead of in-band audio. The module has VoLTE DTMF settings (`AT+DTMFCTL?` returns `1,1`, `AT+VOLTEDTMFCFG?` returns `200,4000`). A real check needs a far end that reacts to digits, such as an automated menu. See 20.9 for the later result.
+
+### 20.8 DTMF into an automated menu (second attempt, still inconclusive)
+
+An outgoing call to a public toll-free sales line (on a Sunday, outside its listed hours) with `ATD+<number>;` connected in about 4 s (`AT+CLCC` state 2 dialing, then 0 active). A headset on the HAT's 3.5 mm jack played the normal greeting, so **received call audio works on outgoing calls too**. Then `AT+VTS=1,10` and `AT+VTS=2,10` each returned `OK`, and `AT+CHUP` ended the call at 25 s (`VOICE CALL: END: 000025`). The listener did not hear the digits locally (expected, the module does not play DTMF to its own earpiece) and did not report the menu reacting. The greeting may not have been a menu that accepts digits at that moment, so this proves nothing yet about DTMF delivery.
+
+### 20.9 DTMF into an automated menu (third attempt, probably works)
+
+An outgoing call to a public toll-free automated information line (listed by its operator as automated 24/7) connected in about 3 s. `AT+VTS=1,10` was sent 13 s after connect and `AT+VTS=0,10` 11 s later, each returning `OK`; `AT+CHUP` ended the call at 33 s. The listener, with a headset on the HAT's 3.5 mm jack, heard a menu and reported that the menu messages **seemed to change** after the digits, but heard no tone locally. That is **probably Observed**, not certain: it rests on one listener's impression, with no transcript. DTMF over the VoLTE call is accepted by the module (`OK`) and appears to reach the far end. The module does not play DTMF to its own earpiece, so a user interface that wants key-press feedback must make its own beep.
+
+**Library consequences:** `AT+VTS=<digit>,<tenths of a second>` for single digits (the command waits for the tone to finish); the string form returns immediately; use `AT+VTD` only if you need a different default length.
+
+### 20.10 Power-cycle persistence (tested)
+
+Eleven settings were changed to non-default values, then the HAT's UART USB cable was unplugged for about 5 s and re-plugged. The module came back at 9600 baud, answered `AT` on the first try, and was registered (`CEREG 0,1`) with no extra steps. **Observed:**
+
+| Setting | Test value | After power cycle |
+|---|---|---|
+| `AT+CPMS` | `"ME","ME","ME"` | **Kept** |
+| `AT+CNMI` | `1,1,0,0,0` | **Kept** |
+| `AT+CTZU` | `0` | **Kept** |
+| `AT+CMEE` | `1` | Back to **`2`** (this unit boots with verbose errors on, not `0`) |
+| `AT+CSMP` | `17,167,0,0` | Back to `17,,0,0` |
+| `AT+CSCS` | `"GSM"` | Back to `"IRA"` |
+| `AT+CRC` | `1` | Back to `0` |
+| `AT+CLVL` | `2` | Back to `4` |
+| `AT+CSDVC` | `3` | Back to `1` |
+| `AT+CSDH` | `1` | Back to `0` |
+| `AT+CCWA` | `1` | Back to `0` |
+
+So **only the SMS storage, the new-message indication mode and the time-zone update flag are saved across a power loss**, matching the SMS note's wording for `CPMS` and `CNMI`. Everything else comes up at its default. The settings were restored afterwards (`CPMS` `"SM"`, `CNMI` `2,1,0,0,0`, `CTZU` `1`).
+
+Other findings from this test:
+- `AT+CCWA?` read `1` before the test although it had read `0` earlier. The only command sent in between was `AT+CCWA=1,2`, which answered `ERROR` but evidently turned call waiting on. Do not send the `=1,2` query form. After the restart it was `0` again.
+- `AT+CLIP?` answers `ERROR` even after being set, so keep its state in software (as in section 18).
+- Whether the PWR button was needed after the cable was re-plugged was not recorded.
+
+**Library consequences:** the start-up sequence must send `AT+CMGF=1`, `AT+CSCS="IRA"` (or `"GSM"`), `AT+CLIP=1`, `AT+CRC=1` and `AT+CSDVC` on every boot, because they are not kept. `AT+CPMS` and `AT+CNMI` can be sent once but are cheap to resend. `AT+CMEE=2` is already the default.
