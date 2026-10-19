@@ -42,6 +42,13 @@ Voice reached a carrier menu ("Boost or Ting?") instead of the phone, and every 
 - The 19-digit ICCID must be typed as text. Passing it through a numeric form-fill rounded it (`...75717` became `...76000`) and Ting rejected it with "ICCID Validation failed". The 19-digit value from `AT+CICCID` passes the Luhn check as is.
 - A SIM from another source can fail Ting's ICCID check even though its ICCID and IMSI look like the same issuer.
 
+## Ting account view (read from the web, 2026-10-19)
+
+- The line for this HAT is listed as device "Simcom SIM7600A-H", status Active. The IMEI and ICCID on the Ting page match what the module reports (`AT+CGSN`, `AT+CICCID`), so the earlier wrong-IMEI problem is gone.
+- Line features all show Enabled: voice, call forwarding (all types), call waiting, hold, three-way calling, voicemail and visual voicemail, and domestic and international roaming. **Wi-Fi calling is Disabled.** The device page has no data or messaging section.
+- Plan is Ting **Flex**, 4 lines, with **shared data** (6 GB pool, $5 per extra GB, hotspot included) and **unlimited talk and text**. So data on this line draws from the shared pool and an overage costs money; keep any data test tiny.
+- The Ting pages do not show an APN. The module's data context still holds the leftover `hologram` APN and is not active. Ting's X1 guide lists `wholesale` (MCC 310, MNC 260) for the T-Mobile-network SIM, and **`wholesale` worked** on this SIM: an IPv4 address was assigned and an HTTP GET returned 200 (see the reference, section 20.11).
+
 ## Notes for the firmware
 
 - Handle a long `AT+CMGS` wait: with a bad line the module can be unresponsive for 2+ minutes, so use a timeout of at least 120 s and do not send other commands while waiting.

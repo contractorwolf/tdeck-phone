@@ -579,7 +579,7 @@ A follow-up pass looked for more commands on the web, probed the new names read-
 
 - Nothing destructive was sent. The 212 candidate names were screened with the same deny rule as the first pass, and only `=?` and `?` were issued to them, plus the execute forms of pure read commands listed in 20.2 and the two supplementary-service queries.
 - Settings were not changed in the probing. The incoming-call test in 20.6 set `AT+CRC=1` (volatile).
-- Needs a phone and a decision from the user, so not run (DTMF was later done, 20.9): a data session (the Ting APN is not known), a power cycle to check whether `AT+CPMS`, `AT+CNMI` and `AT+CMEE` persist, and the SIM toolkit menu.
+- Needs a phone and a decision from the user, so not run in the probing pass (DTMF, power cycle and data were done later, 20.9 to 20.11): the SIM toolkit menu.
 
 ### 20.6 Incoming calls and ATH (tested)
 
@@ -645,3 +645,24 @@ Other findings from this test:
 - Whether the PWR button was needed after the cable was re-plugged was not recorded.
 
 **Library consequences:** the start-up sequence must send `AT+CMGF=1`, `AT+CSCS="IRA"` (or `"GSM"`), `AT+CLIP=1`, `AT+CRC=1` and `AT+CSDVC` on every boot, because they are not kept. `AT+CPMS` and `AT+CNMI` can be sent once but are cheap to resend. `AT+CMEE=2` is already the default.
+
+### 20.11 Data session and HTTP (tested)
+
+On the Ting Flex line (shared data pool, see [board-test-findings.md](board-test-findings.md)) with the APN set to **`wholesale`** (Ting's guide value for the T-Mobile-network SIM). **Observed:**
+
+| Step | Result |
+|---|---|
+| `AT+CGDCONT=1,"IP","wholesale"` | `OK` |
+| `AT+CGACT=1,1` | `OK` in about 0.6 s; `AT+CGACT?` then shows contexts 1 and 2 active (it was 1 inactive and 2 active before) |
+| `AT+CGPADDR=1` | An IPv4 address was assigned (not recorded) |
+| `AT+HTTPINIT`, `AT+HTTPPARA="URL","http://example.com/"` | `OK` each |
+| `AT+HTTPACTION=0` | `OK` then `+HTTPACTION: 0,200,577` after about 10 s (method 0 = GET, status 200, 577 bytes), followed by `+HTTP_PEER_CLOSED` |
+| `AT+HTTPHEAD` | `+HTTPHEAD: DATA,314` then the response headers; the server answered `HTTP/1.1 200 OK` |
+| `AT+HTTPTERM` | `OK` |
+| `AT+CGACT=0,1` | **`ERROR`**, also when retried. Context 1 stays active, probably because it is the LTE default bearer. It uses no data while idle |
+
+So **mobile data works on this line with APN `wholesale`**, and the SIM7600A-H's built-in HTTP client works with plain `http://` URLs. The whole test moved well under 2 KB. Other notes:
+
+- `+HTTPACTION` is an asynchronous result that arrived about 10 s after `OK`; the library needs an event for it.
+- After the test the APN on context 1 was set back to the old `hologram` value, but the live session keeps running on `wholesale` until the next re-attach. Set `AT+CGDCONT=1,"IP","wholesale"` in the start-up sequence if data is wanted; it is not clear whether `AT+CGDCONT` itself is kept across power loss.
+- HTTPS (`+CHTTPS...`) and the other stacks were not tried.
