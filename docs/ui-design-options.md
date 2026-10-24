@@ -6,8 +6,8 @@ Evidence labels: **seen** means I looked at the image or page myself; **reported
 
 ## What the hardware gives the UI
 
-- **Screen:** 320 x 240 pixels, landscape, colour, **no touch** (LilyGO wiki).
-- **Input:** the built-in QWERTY keyboard (I2C) and a **trackball** with a click. Navigation is keyboard and trackball only, so every screen needs a clear focus model and keyboard shortcuts.
+- **Screen:** 320 x 240 pixels, landscape, colour, **capacitive touch** (GT911 at I2C 0x5D, confirmed by an I2C scan and tap tests; the LilyGO wiki's "no touch" is wrong).
+- **Input:** the built-in QWERTY keyboard (I2C) and a **trackball** with a click. Navigation can use touch, the keyboard and the trackball, so every screen needs a clear focus model and keyboard shortcuts as well as touch targets large enough to tap.
 - **Chip:** ESP32-S3 with PSRAM. LilyGO's T-Deck is sold with 16 MB flash and 8 MB PSRAM (unverified for this exact unit; confirm from the board). SD card slot for storage. See [parts/t-deck.md](parts/t-deck.md).
 - **Small screen, dense content:** about 10 text rows at a readable size. Lists and thread views are the main design problem.
 - **Other things sharing the CPU:** the AT-command library polling the modem, and later audio. The UI must stay responsive while a text send is pending for minutes.

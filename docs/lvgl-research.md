@@ -12,7 +12,7 @@ Goal: a flashable app with a homescreen and mock Messages, Calls, Contacts and S
 ## Hardware facts that matter for the UI
 
 - Display: 320x240 ST7789, 16-bit colour, driven by LovyanGFX. SPI MOSI 41, MISO 38, SCK 40, CS 12, DC 11, backlight 42. The SPI bus is shared with SD and LoRa.
-- No touch. Input is the keyboard (separate ESP32-C3, I2C address 0x55, SDA 18, SCL 8, interrupt GPIO46) and the trackball.
+- The screen **has touch** (an earlier version of this note said it did not, repeating a LilyGO wiki line that is wrong). An I2C scan found a GT911 touch controller at 0x5D on the same bus as the keyboard (SDA 18, SCL 8; touch interrupt GPIO16). It reports in the panel's portrait shape (x 0-239, y 0-319), so for the landscape screen use screen x = raw y and screen y = 239 - raw x (measured with `firmware/touchcal`, two of five targets). Other inputs: the keyboard (separate ESP32-C3, I2C address 0x55, interrupt GPIO46) and the trackball.
 - Trackball pins: G01=3, G02=2, G03=15, G04=1, click on GPIO0 (BOOT). Which pin is which direction is not documented in our reference header, so find out on the device.
 - GPIO10 (`BOARD_POWERON`) must be HIGH at boot or peripherals are off on battery.
 - GPIO0 stops working as the click button while the microphone is active.
@@ -33,7 +33,7 @@ Goal: a flashable app with a homescreen and mock Messages, Calls, Contacts and S
 - Tick and loop: give LVGL a millisecond tick (`lv_tick_set_cb(millis)`) and call `lv_timer_handler()` from `loop()`. Single-threaded, so no locking is needed.
 - Input: one keypad input device (`LV_INDEV_TYPE_KEYPAD`). The read callback returns an `LV_KEY_*` code and pressed/released. Map trackball up/down/left/right to `LV_KEY_UP/DOWN/LEFT/RIGHT`, click to `LV_KEY_ENTER`, keyboard Backspace or Esc to `LV_KEY_ESC`, and typed characters straight through for text areas.
 - Focus: put every interactive widget into an `lv_group` and assign it to the input device. The focused widget gets the keys and the `LV_STATE_FOCUSED` style, which is the highlight the user sees. Make one group per screen so focus resets cleanly.
-- Screens: one `lv_obj` screen per app, switched with `lv_screen_load`. Esc returns to home. Avoid tileview and swipe navigation, since there is no touch. The third-party `lvgl_nav_kit` component adds a page stack but is not needed for four screens.
+- Screens: one `lv_obj` screen per app, switched with `lv_screen_load`. Tapping the status bar or pressing `q` returns home, and a right swipe goes back one screen (LVGL gesture event). Tileview was not used. The third-party `lvgl_nav_kit` component adds a page stack but is not needed for four screens.
 - Lists: `lv_list` is enough for mock messages and contacts. Real message history later needs a windowed list. That is already noted in `ui-design-options.md`.
 - Theme: one small theme or style file for colours and fonts. Check that the built-in Montserrat font sizes enabled in `lv_conf.h` are readable at 320x240.
 
