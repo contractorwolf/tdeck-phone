@@ -1,3 +1,5 @@
 venv/
 .npm-cache/
 .DS_Store
+firmware/libraries/lvgl/
+firmware/libraries/LovyanGFX/
