@@ -32,6 +32,7 @@ Photos are in `../images/` (T-Deck front/back, (B) V2 top/bottom, `old-waveshare
 - [ting-and-voice.md](ting-and-voice.md): why the A-H is chosen, the Ting/VoLTE caveats.
 - [next-steps.md](next-steps.md): what is left to do, in order.
 - [ui-design-options.md](ui-design-options.md): options and approach for the T-Deck UI (lists of conversations, contacts, files), with linked example screenshots.
+- [bluetooth.md](bluetooth.md): the HAT has no usable Bluetooth; the module's `AT+BT…` command set, what it did on the real module, and what that means for headphones.
 - [sim7600a-h-at-reference.md](sim7600a-h-at-reference.md): what the module actually does (observed), compared with the SIMCom manual and Waveshare wiki; hidden commands; findings for the library. Companion: [sim7600a-h-at-command-index.md](sim7600a-h-at-command-index.md) (896 command names) and [reference/at-probe/](reference/at-probe/) (sanitized raw results).
 - [at-library-plan.md](at-library-plan.md): plan for the AT-command library (SMS and calls first, data as a stretch).
 - [bring-up-checklist.md](bring-up-checklist.md): step-by-step order of work with pass conditions.

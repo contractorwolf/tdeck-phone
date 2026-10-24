@@ -378,7 +378,7 @@ Never sent in any form, because they exist and some are dangerous:
 - **Network side effects:** `+COPS` (a `=?` scan blocks for minutes), `+CNETSCAN`, `+CELLLOCK`, `+CFUN`, `+ENTERSLEEP`, `+NETDORM`.
 - **Vendor families of unknown purpose:** `$QC…` (Qualcomm-style), `$MY…` (a customised set that includes `$MYBAND`, `$MYNET…`, `$MYFTP…`, `$MYPING`, `$MYGPSPOS`), `+AYLA…`, `+BT…`.
 
-The full list is in [reference/at-probe/not_probed_for_safety.txt](reference/at-probe/not_probed_for_safety.txt). The `$`-prefixed names and the basic `AT&` and `ATx` commands were not probed at all.
+The full list is in [reference/at-probe/not_probed_for_safety.md](reference/at-probe/not_probed_for_safety.md). The `$`-prefixed names and the basic `AT&` and `ATx` commands were not probed at all.
 
 ## 15. Hidden and undocumented commands
 
