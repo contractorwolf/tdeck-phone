@@ -43,8 +43,8 @@ Photos are in `../images/` (T-Deck front/back, (B) V2 top/bottom, `old-waveshare
 
 ## Key findings so far
 
-- The A-H HAT's header UART is 3.3V (level shifting done on the board), so the T-Deck Grove UART connects directly: no shifter and no soldering to the module.
-- The T-Deck's 4-pin Grove header is GPIO43 (TX) and GPIO44 (RX) per LilyGO's `utilities.h`.
+- The A-H HAT's header UART is 3.3V (level shifting done on the board), so the T-Deck serial-pad UART connects directly: no shifter and no soldering to the module.
+- The T-Deck's 4-pad serial connector (solder pads, silk GND VCC TX RX) is GPIO43 (TX) and GPIO44 (RX) per LilyGO's `utilities.h`.
 - For the fallback: the (B) V2 module UART is 1.8V and unconnected, PWRKEY is tied low via R26, and a divider plus a real shifter would be needed (see level-shifting.md).
 - Voice on US carriers needs VoLTE; the A-H is proven on Ting, the G-H is not.
 
@@ -53,5 +53,6 @@ Photos are in `../images/` (T-Deck front/back, (B) V2 top/bottom, `old-waveshare
 - Receive side not yet tested (`RING`, `+CLIP`, `+CMTI`).
 - Which UART JMP position did the earlier setup use? (The baud is 9600.)
 - PWR header pin polarity and whether it is safe to drive from a 3.3V GPIO.
-- Confirm GPIO43/44 on this T-Deck revision against the schematic.
+- Confirm GPIO43/44 on this T-Deck's serial pads against the schematic or with a meter.
+- The HAT is powered only from the T-Deck VCC pad (wired to the HAT 5V pin). The pad's voltage and current capacity are not measured; the modem's transmit bursts may cause resets (see [parts/t-deck.md](parts/t-deck.md)).
 - Voice audio path: the HAT's jack (easy) vs PCM to the T-Deck codec (harder).

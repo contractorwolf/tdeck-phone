@@ -101,7 +101,7 @@ SPI (pads 6-9, optional Bluetooth UART function), I2C (SCL/SDA pads 55/56, the m
 2. Practise SMS: `AT+CMGF=1`, `AT+CMGS="<number>"` (end with Ctrl-Z, 0x1A), `AT+CNMI=2,1`, `AT+CMGL="ALL"`. Practise a call: `ATD<number>;`, `AT+CLCC`, `ATH`. Use the headset in the HAT jack.
 3. Read `AT+IPR?` and note the UART baud (the HAT has no UART of its own, see A4).
 4. **B1:** wire a USB-UART adapter (3.3V FTDI or CP2102) to pads 68/71 through the level-shifting circuit and repeat step 1 from the PC. This tests the dead-bug and shifter without involving T-Deck firmware.
-5. Move the same wires to the T-Deck Grove pins (GPIO43/44) and test with firmware.
+5. Move the same wires to the T-Deck serial pads (GPIO43/44) and test with firmware.
 6. Add PWRKEY/STATUS/RI (B2) and move to a no-PC workflow.
 
 ## Risks to keep in mind

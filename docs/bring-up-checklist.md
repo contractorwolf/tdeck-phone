@@ -54,8 +54,8 @@ The fallback route for the (B) V2 / G-H (dead-bug UART, level shifting) is in [p
 
 ## Phase 4: Connect the T-Deck
 
-1. [ ] Confirm the Grove UART pins from the T-Deck schematic (GPIO43 TX / GPIO44 RX) and that nothing else uses them.
-2. [ ] Wire T-Deck TX to header RX, T-Deck RX to header TX, GND to GND. Keep the HAT on its own 5V.
+1. [ ] Confirm the serial-pad UART pins from the T-Deck schematic (GPIO43 TX / GPIO44 RX) and that nothing else uses them.
+2. [ ] Wire T-Deck TX to header RX, T-Deck RX to header TX, GND to GND. As built, the HAT is powered only through the T-Deck VCC pad wired to its 5V pin (see [parts/t-deck.md](parts/t-deck.md)); measure that voltage first and watch for resets when the modem transmits. Do not add a second 5V source while that wire is in place.
 3. [ ] Minimal sketch: `Serial1` on those pins at the HAT baud, set `BOARD_POWERON` (GPIO10) high, forward the USB serial to the modem and back.
 4. [ ] **Pass:** `AT`, `ATI` and the Phase 1 commands work from the T-Deck serial monitor. Then write the firmware: SMS send/receive and call control.
 

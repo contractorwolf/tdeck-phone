@@ -10,11 +10,12 @@ Identified from `images/old-waveshare.jpg`. This is the **modem the project now 
 - A **UART JMP** block (rows A, B, C; positions CP2102 / PI / SIM7600X) that selects where the module UART is routed.
 - The 40-pin Pi header, plus a **side header** labelled 3V3, PWR, D6, D4, Flight, ADC1, IO43, RI, DCD, DTR, CTS, RTS, RX, TX, GND, 5V.
 - The earlier project wired the side header with four wires (red/black = 5V/GND, green/white = TX/RX) to a microcontroller on a perfboard.
+- On the bench unit the tan plastic serial connector was **removed from the side header**, and the wires to the T-Deck go to the bare header pads instead (see `../../images/tdeck-serial-pads-wired-to-hat.png`). The silk labels on the pads are RXD, TXD, GND and 5V, next to the UART JMP block.
 
 ## Why this is the primary modem
 
 - It exposes a **3.3V UART** (RX, TX, RTS, CTS, RI, DTR, DCD) on a header. The older V1 schematic (`reference/Waveshare_SIM7600G-H_4G_HAT_schematic_V1.pdf`) shows a TXB0108 level translator between the module and the header, so no divider or shifter is needed and nothing is dead-bugged.
-- The T-Deck's 3.3V Grove UART connects straight to it: T-Deck TX (GPIO43) to header RX, T-Deck RX (GPIO44) from header TX, shared GND.
+- The T-Deck's 3.3V serial-pad UART connects straight to it: T-Deck TX (GPIO43) to header RX, T-Deck RX (GPIO44) from header TX, shared GND.
 - Voice calls and the Ting SIM are already known to work on it. The G-H module on the (B) V2 is a different variant and IMEI with no such proof (see [../ting-and-voice.md](../ting-and-voice.md)).
 - The PWR header pin and the PWRKEY button give power control, and RI gives ring/SMS wake, both at 3.3V.
 
@@ -27,7 +28,7 @@ Identified from `images/old-waveshare.jpg`. This is the **modem the project now 
 | GND | GND | Mandatory |
 | a free GPIO (1, 2, 3 or 15) | RI | Optional ring/SMS wake |
 | a free GPIO | PWR | Optional power control; check the polarity first |
-| (not from the T-Deck) | 5V | Power the HAT from its own 5V supply or USB |
+| VCC pad (as built) | 5V | The T-Deck VCC pad is wired to this pin and is currently the HAT's only power (confirmed by the owner). The earlier plan was to power the HAT from its own 5V supply or USB; see [t-deck.md](t-deck.md) |
 
 The UART JMP setting that routes the module to the side header (rather than to the CP2102 or the Pi header) is **not yet known**; read it off the board and the Waveshare wiki before wiring. The PWR pin polarity (schematic shows "PWR Control" through a transistor to PWRKEY) is also to be confirmed.
 

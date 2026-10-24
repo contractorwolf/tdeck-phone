@@ -59,5 +59,5 @@ Voice reached a carrier menu ("Boost or Ting?") instead of the phone, and every 
 
 ## Next
 
-- Wire the T-Deck Grove UART (GPIO43/44) to the HAT side header at 9600 baud (checklist Phase 3 and 4).
+- Wire the T-Deck serial-pad UART (GPIO43/44) to the HAT side header at 9600 baud (checklist Phase 3 and 4).
 - Test receive: call and text the line from another phone and watch for `RING`, `+CLIP` and `+CMTI`.

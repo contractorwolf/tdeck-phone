@@ -6,8 +6,8 @@ What is left, in order. Done so far is in [README.md](README.md) and [board-test
 
 - [ ] Read the UART JMP setting on the old HAT and confirm it routes the module to the side header (the bench test used the CP2102 path). Confirm positions on the Waveshare wiki or by continuity.
 - [ ] Measure the header TX idle voltage with the HAT on (expect about 3.3V) before connecting the T-Deck.
-- [ ] Confirm the T-Deck Grove UART pins (GPIO43 TX, GPIO44 RX) against the T-Deck schematic and that nothing else on the board uses them.
-- [ ] Connect T-Deck TX to header RX, T-Deck RX to header TX, GND to GND. Keep the HAT on its own 5V supply.
+- [ ] Confirm the T-Deck serial-pad UART pins (GPIO43 TX, GPIO44 RX) against the T-Deck schematic and that nothing else on the board uses them.
+- [ ] Connect T-Deck TX to header RX, T-Deck RX to header TX, GND to GND. As built, the HAT is powered only through the T-Deck VCC pad wired to its 5V pin (see [parts/t-deck.md](parts/t-deck.md)); measure that voltage first and watch for resets when the modem transmits. Do not add a second 5V source while that wire is in place.
 - [ ] Minimal sketch: `Serial1` at 9600 baud, `BOARD_POWERON` (GPIO10) high, forward USB serial to the modem and back. Pass: `AT`, `ATI`, `AT+CSQ` work from the T-Deck.
 
 ## 2. Test the receive side
@@ -42,7 +42,7 @@ Options, examples and a recommended approach are in [ui-design-options.md](ui-de
 
 - [ ] RI to a free T-Deck GPIO (1, 2, 3 or 15) for wake on ring/SMS.
 - [ ] PWR pin control from the T-Deck, after confirming the polarity in the schematic and that it is safe to drive from 3.3V.
-- [ ] Power budget: the HAT needs its own 5V supply during transmit bursts; plan the battery and regulator for a handheld.
+- [ ] Power budget: the HAT draws large 5V bursts during transmit and is currently powered only through the T-Deck VCC pad; measure that pad, and plan a proper supply, battery and regulator for a handheld.
 
 ## 7. Housekeeping
 
